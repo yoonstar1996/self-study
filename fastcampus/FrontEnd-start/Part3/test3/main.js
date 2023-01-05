@@ -1,4 +1,12 @@
-import _ from "lodash";
+const ulEl = document.querySelector("ul");
 
-console.log("hello world");
-console.log(_.camelCase("hello world"));
+for (let i = 0; i < 10; i++) {
+  const li = document.createElement("li");
+  li.textContent = `list-${i + 1}`;
+  if ((i + 1) % 2 === 0) {
+    li.addEventListener("click", function () {
+      console.log(li.textContent);
+    });
+  }
+  ulEl.appendChild(li);
+}
