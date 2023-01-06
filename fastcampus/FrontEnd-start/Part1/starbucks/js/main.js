@@ -46,20 +46,21 @@ fadeEls.forEach(function (fadeEl, index) {
 });
 
 new Swiper(".notice-line .swiper-container", {
-  direction: "vertical",
-  autoplay: true,
-  loop: true,
+  direction: "vertical", // 수직 슬라이드
+  autoplay: true, // 자동 재생 여부
+  loop: true, // 반복 재생 여부
 });
 
 new Swiper(".promotion .swiper-container", {
-  slidesPerView: 3,
-  spaceBetween: 10,
-  centeredSlides: true,
+  slidesPerView: 3, //한 번에 보여줄 슬라이드 개수
+  spaceBetween: 10, // 슬라이드 사이 여백
+  centeredSlides: true, // 1번 슬라이드가 가운데 보이기
   autoplay: {
-    delay: 5000,
+    delay: 5000, // 5초마다 슬라이드 바뀜
   },
   loop: true,
   pagination: {
+    // 페이지 번호 사용 여부
     el: ".promotion .swiper-pagination", //페이지 번호 요소
     clickable: true, //사용자의 페이지 번호 요소 제어
   },
