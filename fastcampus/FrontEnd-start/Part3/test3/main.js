@@ -1,4 +1,5 @@
 import myData from "./myData.json";
+import axios from "axios";
 
 console.log(myData);
 
@@ -31,3 +32,14 @@ localStorage.setItem("user", JSON.stringify(obj));
 // console.log(JSON.parse(localStorage.getItem("user")));
 
 // localStorage.removeItem("user");
+
+function fetchMovies() {
+  axios.get("https://www.omdbapi.com/?apikey=7035c60c&s=frozen").then((res) => {
+    console.log(res);
+    const h1El = document.querySelector("h1");
+    const imgEl = document.querySelector("img");
+    h1El.textContent = res.data.Search[0].Title;
+    imgEl.src = res.data.Search[0].Poster;
+  });
+}
+fetchMovies();
