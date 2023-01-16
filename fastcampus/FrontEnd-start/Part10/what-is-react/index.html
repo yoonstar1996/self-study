@@ -18,7 +18,8 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
-    <script type="text/javascript">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
       console.log(React);
       console.log(ReactDOM);
 
@@ -128,6 +129,19 @@
       //   ),
       //   document.querySelector("#root")
       // );
+
+      ReactDOM.render(
+        <div>
+          <div>
+            <h1>주제</h1>
+            <ul>
+              <li>React</li>
+              <li>Vue</li>
+            </ul>
+          </div>
+        </div>,
+        document.querySelector("#root")
+      );
     </script>
   </body>
 </html>
