@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <button id="btn_plus">+</button>
+    <!-- <button id="btn_plus">+</button> -->
 
     <script
       crossorigin
@@ -130,18 +130,211 @@
       //   document.querySelector("#root")
       // );
 
-      ReactDOM.render(
-        <div>
-          <div>
-            <h1>주제</h1>
-            <ul>
-              <li>React</li>
-              <li>Vue</li>
-            </ul>
-          </div>
-        </div>,
-        document.querySelector("#root")
-      );
+      // ReactDOM.render(
+      //   <div>
+      //     <div>
+      //       <h1>주제</h1>
+      //       <ul>
+      //         <li>React</li>
+      //         <li>Vue</li>
+      //       </ul>
+      //     </div>
+      //   </div>,
+      //   document.querySelector("#root")
+      // );
+
+      // // {message : '안녕하세요!!!'}
+      // function Component(props) {
+      //   return (
+      //     <div>
+      //       <h1>{props.message} 이것은 함수로 만든 컴포넌트 입니다.</h1>
+      //     </div>
+      //   );
+      // }
+
+      // Component.defaultProps = {
+      //   message: "기본값",
+      // };
+
+      // class Component extends React.Component {
+      // state = {
+      //   count: 0,
+      // };
+      // constructor(props) {
+      //   super(props);
+
+      //   //
+      //   this.state = { count: 0 };
+      // }
+
+      // render() {
+      //   return (
+      //     <div>
+      //       <h1>
+      //         {this.props.message} 이것은 클래스로 만든 컴포넌트 입니다.
+      //       </h1>
+      //       <h3>{this.state.count}</h3>
+      //     </div>
+      //   );
+      // }
+
+      // componentDidMount() {
+      //   setInterval(() => {
+      //
+      // this.state.count = this.state.count + 1;
+      // this.setState({
+      //   count: this.state.count + 1,
+      // });
+      //       this.setState((prev) => {
+      //         const newState = { count: prev.count + 1 };
+      //         return newState;
+      //       });
+      //     }, 1000);
+      //   }
+
+      //   static defaultProps = {
+      //     message: "기본값2",
+      //   };
+      // }
+
+      // ReactDOM.render(
+      //   <Component message="기본값 아님" />,
+      //   document.querySelector("#root")
+      // );
+
+      // function Component() {
+      //   return (
+      //     <div>
+      //       <button
+      //         onClick={() => {
+      //           console.log("clicked");
+      //         }}
+      //       >
+      //         클릭
+      //       </button>
+      //     </div>
+      //   );
+      // }
+
+      // class Component extends React.Component {
+      //   state = {
+      //     count: 0,
+      //   };
+      // constructor(props) {
+      //   super(props);
+
+      //   this.click = this.click.bind(this);
+      // }
+      //   render() {
+      //     return (
+      //       <div>
+      //         <h3>{this.state.count}</h3>
+      //         <button onClick={this.click}>클릭</button>
+      //       </div>
+      //     );
+      //   }
+
+      //   click = () => {
+      //     console.log("clicked");
+      //     this.setState((state) => ({
+      //       ...state,
+      //       count: state.count + 1,
+      //     }));
+      //   };
+      // }
+
+      // ReactDOM.render(<Component />, document.querySelector("#root"));
+
+      // class App2 extends React.Component {
+      //   state = {
+      //     age: 39,
+      //   };
+      //   constructor(props) {
+      //     super(props);
+      //     console.log("constructor", props);
+      //   }
+
+      //   render() {
+      //     console.log("render!");
+      //     return (
+      //       <div>
+      //         <h2>
+      //           Hello {this.props.name} - {this.state.age}
+      //         </h2>
+      //       </div>
+      //     );
+      //   }
+      //   // componentWillMount() {
+      //   //   console.log("ComponentWillMount");
+      //   // }
+      //   static getDerivedStateFromProps(nextProps, prevState) {
+      //     console.log("getDerivedStateFromProps", nextProps, prevState);
+
+      //     return {
+      //       age: 390,
+      //     };
+      //   }
+      //   // componentDidMount() {
+      //   //   console.log("ComponentDidMount");
+
+      //   // setInterval(() => {
+      //   //   // console.log("setInterval");
+      //   //   this.setState((state) => ({ ...state, age: state.age + 1 }));
+      //   // }, 1000);
+      //   // }
+      // }
+
+      // let i = 0;
+      // class App extends React.Component {
+      //   state = {
+      //     list: [],
+      //   };
+
+      //   render() {
+      //     return (
+      //       <div id="list" style={{ height: 100, overflow: "scroll" }}>
+      //         {this.state.list.map((i) => {
+      //           return <div>{i}</div>;
+      //         })}
+      //       </div>
+      //     );
+      //   }
+
+      //   componentDidMount() {
+      //     setInterval(() => {
+      //       this.setState((state) => ({
+      //         list: [...state.list, i++],
+      //       }));
+      //     }, 1000);
+      //   }
+      //   getSnapshotBeforeUpdate(prevProps, prevState) {
+      //     if (prevState.list.length === this.state.list.length) return null;
+      //     const list = document.querySelector("#list");
+      //     return list.scrollHeight - list.scrollTop;
+      //   }
+
+      //   componentDidUpdate(prevProps, prevState, snapshot) {
+      //     console.log(snapshot);
+      //     if (snapshot === null) return;
+      //     const list = document.querySelector("#list");
+      //     list.scrollTop = list.scrollHeight - snapshot;
+      //   }
+      // }
+
+      class App extends React.Component {
+        state = {
+          hasError: false,
+        };
+        render() {
+          if (this.state.hasError === true) {
+            return <div>예상치 못한 에러가 발생했다.</div>;
+          } else {
+            return <WebService />;
+          }
+        }
+      }
+
+      ReactDOM.render(<App name="mark" />, document.querySelector("#root"));
     </script>
   </body>
 </html>
