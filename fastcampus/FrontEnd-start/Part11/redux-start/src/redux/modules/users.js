@@ -1,4 +1,6 @@
+import { call, delay, put, takeEvery } from "@redux-saga/core/effects";
 import axios from "axios";
+import { push } from "connected-react-router";
 
 // 액션 타입 정의
 
@@ -101,16 +103,51 @@ export function getUsersPromise() {
   };
 }
 
-// redux-thunck
+// redux-thunk
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
+
 export function getUsersThunk() {
   return async (dispatch, getState, { history }) => {
     try {
       console.log(history);
       dispatch(getUsersStart());
+      await sleep(2000);
       const res = await axios.get("https://api.github.com/users");
       dispatch(getUsersSuccess(res.data));
+      history.push("/");
     } catch (error) {
       dispatch(getUsersFail(error));
     }
   };
+}
+
+// redux-saga
+const GET_USERS_SAGA_START = "GET_USERS_SAGA_START";
+
+function* getUsersSaga(action) {
+  try {
+    yield put(getUsersStart());
+    yield delay(2000);
+    const res = yield call(axios.get, "https://api.github.com/users");
+    yield put(getUsersSuccess(res.data));
+    yield put(push("/"));
+  } catch (error) {
+    yield put(getUsersFail(error));
+  }
+}
+
+export function getUsersSagaStart() {
+  return {
+    type: GET_USERS_SAGA_START,
+  };
+}
+
+export function* usersSaga() {
+  yield takeEvery(GET_USERS_SAGA_START, getUsersSaga);
 }

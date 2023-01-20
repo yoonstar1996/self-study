@@ -1,17 +1,18 @@
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router";
 import Home from "./pages/Home";
 import Todos from "./pages/Todos";
 import Users from "./pages/Users";
-import history from "./redux/store";
+import history from "./history";
+import { ConnectedRouter } from "connected-react-router";
 
 function App() {
   return (
-    <Router history={history}>
-      <Route path="/" exact component={Home} />
-      <Route path="/todos" exact component={Todos} />
-      <Route path="/users" exact component={Users} />
-    </Router>
+    <ConnectedRouter history={history}>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/todos" component={Todos} />
+      <Route exact path="/users" component={Users} />
+    </ConnectedRouter>
   );
 }
 
