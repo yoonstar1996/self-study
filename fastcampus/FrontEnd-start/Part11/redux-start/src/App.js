@@ -1,9 +1,9 @@
 import "./App.css";
-import { Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Todos from "./pages/Todos";
 import Users from "./pages/Users";
-import history from "./history";
+import history from "./redux/store";
 
 function App() {
   return (
