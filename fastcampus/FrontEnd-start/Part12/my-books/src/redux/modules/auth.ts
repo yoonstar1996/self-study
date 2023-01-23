@@ -55,6 +55,9 @@ function* loginSaga(action: Action<LoginReqType>) {
   try {
     yield put(pending())
     const token = yield call(UserService.login, action.payload)
+    // localstorage
+    yield put(success(token))
+    // 
   } catch () {
 
   }
