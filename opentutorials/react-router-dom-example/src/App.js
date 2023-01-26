@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Switch, Link, NavLink, useParams } from "react-router-dom";
+import { Route, Switch, NavLink, useParams } from "react-router-dom";
 
 function App() {
   return (
