@@ -1,19 +1,20 @@
 "use strict";
-class Person {
-    constructor(_name, age) {
+class Parent {
+    constructor(_name, _age) {
         this._name = _name;
-        this.age = age;
+        this._age = _age;
     }
-    get name() {
-        //
-        console.log("get");
-        return this._name;
-    }
-    set name(n) {
-        console.log("set");
-        this._name = n;
+    print() {
+        console.log(`이름은 ${this._name}이고, 나이는 ${this._age}입니다.`);
     }
 }
-const p1 = new Person("Mark", 39);
-console.log(p1.name); // get을 하는 함수 getter
-p1.name = "Yoon"; // set을 하는 함수 setter
+// const p = new Parent("Mark", 39);
+// p.print();
+class Child extends Parent {
+    constructor(age) {
+        super("Mark Jr.", age);
+        this.gender = "male";
+    }
+}
+const c = new Child(5);
+c.print();
