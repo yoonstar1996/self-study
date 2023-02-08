@@ -1,8 +1,10 @@
 import Layout from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import { getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export async function getStaticProps({ params }) {
   // Add the "await" keyword like this:
@@ -16,7 +18,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  // const paths = getAllPostIds();
   // [
   //   {
   //     params: {
@@ -31,12 +33,28 @@ export async function getStaticPaths() {
   // ]
 
   return {
-    paths,
-    fallback: false,
+    paths: [{ params: { id: "ssg-ssr" } }],
+    // paths,
+    fallback: true,
   };
 }
 
 export default function Post({ postData }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const getText = async () => {
+      const res = await fetch("/api/hello");
+      const data = await res.json();
+
+      alert(data.text);
+    };
+    getText();
+  }, []);
+
+  if (router.isFallback) {
+    return <div>Loading....</div>;
+  }
   return (
     <Layout>
       <Head>
