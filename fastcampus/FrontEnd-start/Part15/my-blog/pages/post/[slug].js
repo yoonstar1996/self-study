@@ -13,3 +13,16 @@ export default function PostAll() {
     </>
   );
 }
+
+export function getStaticPaths() {
+  return {
+    paths: [{ params: { slug: "my-blog-test" } }],
+    fallback: false,
+  };
+}
+
+export function getStaticProps() {
+  return {
+    // props:
+  };
+}
