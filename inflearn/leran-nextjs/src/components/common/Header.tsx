@@ -3,7 +3,11 @@ import React from "react";
 import styles from "../../styles/header.module.scss";
 import Image from "next/image";
 
-export default function Header() {
+interface Props {
+  rightElements?: React.ReactElement[];
+}
+
+export default function Header({ rightElements }: Props) {
   return (
     <header className={styles.header}>
       <div className={styles.flexItem}>
@@ -16,6 +20,7 @@ export default function Header() {
           />
         </Link>
       </div>
+      {rightElements && <div className={styles.flexItem}>{rightElements}</div>}
     </header>
   );
 }
