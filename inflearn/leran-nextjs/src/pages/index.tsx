@@ -4,8 +4,22 @@ import Link from "next/link";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { VscFeedback } from "react-icons/vsc";
 import MapSection from "@/components/home/MapSection";
+import { Store } from "@/types/store";
+import useStores from "@/hooks/useStore";
+import { useEffect } from "react";
 
-export default function Home() {
+interface Props {
+  stores: Store[];
+}
+
+export default function Home({ stores }: Props) {
+  // console.log(stores);
+  const { initializeStores } = useStores();
+
+  useEffect(() => {
+    initializeStores(stores);
+  }, [initializeStores, stores]);
+
   return (
     <>
       <Header
@@ -30,4 +44,14 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // TODO : next api routes롤 불러오기 ( 리팩토링 예정 )
+  const stores = (await import("../../public/stores.json")).default;
+
+  return {
+    props: { stores },
+    revalidate: 60 * 60,
+  };
 }
