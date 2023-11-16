@@ -1,10 +1,18 @@
+import { Topics } from "@/app/layout";
 import React from "react";
 
-export default function Read(props: any) {
+export default async function Read(props: any) {
+  const resp = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}` + `topics/${props.params.id}`,
+    {
+      cache: "no-store",
+    }
+  );
+  const topic: Topics = await resp.json();
   return (
     <>
-      <div>Read Page</div>
-      <div>parameters : {props.params.id}</div>
+      <h2>{topic.title}</h2>
+      <div>{topic.body}</div>
     </>
   );
 }

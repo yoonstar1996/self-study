@@ -7,8 +7,13 @@
     },
     {
       "id": 2,
-      "title": "css",
-      "body": "css is ..."
+      "title": "Css",
+      "body": "Css is ..."
+    },
+    {
+      "title": "Javascript",
+      "body": "javascript is ...",
+      "id": 3
     }
   ],
   "posts": [

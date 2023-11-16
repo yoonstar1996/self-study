@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { Control } from "./Control";
 
-interface Topics {
+export interface Topics {
   id: number;
   title: string;
   body: string;
@@ -19,7 +20,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const resp = await fetch("http://localhost:9999/topics");
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}` + "topics", {
+    cache: "no-store",
+  });
   const topics: Topics[] = await resp.json();
 
   return (
@@ -40,19 +43,7 @@ export default async function RootLayout({
           </ol>
         </nav>
         <main>{children}</main>
-        <footer>
-          <ul>
-            <li>
-              <Link href="/create">Create</Link>
-            </li>
-            <li>
-              <Link href="/update/1">Update</Link>
-            </li>
-            <li>
-              <button type="button">delete</button>
-            </li>
-          </ul>
-        </footer>
+        <Control></Control>
       </body>
     </html>
   );
