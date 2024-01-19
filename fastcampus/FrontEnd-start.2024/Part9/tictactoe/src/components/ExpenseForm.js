@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ExpenseFrom.css";
+import { MdSend } from "react-icons/md";
 
 export default class ExpenseForm extends Component {
   render() {
@@ -29,6 +30,7 @@ export default class ExpenseForm extends Component {
         </div>
         <button type="submit" className="btn">
           제출
+          <MdSend className="btn-icon" />
         </button>
       </form>
     );
