@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
@@ -10,25 +10,47 @@ const App = () => {
     { id: 3, charge: "식비", amount: 1200 },
   ]);
 
-  const [allMount, setAllMount] = useState(0);
+  const [charge, setCharge] = useState("");
+  const [amount, setAmount] = useState(0);
 
   const handleDelete = (id) => {
     const newExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(newExpenses);
   };
 
-  useEffect(() => {
-    expenses.map((expense) => {
-      console.log(expense.amount);
-    });
-  }, []);
+  const handleCharge = (e) => {
+    setCharge(e.target.value);
+  };
+
+  const handleAmount = (e) => {
+    setAmount(e.target.valueAsNumber);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (charge !== "" && amount > 0) {
+      const newExpense = { id: crypto.randomUUID, charge, amount };
+      const newExpenses = [...expenses, newExpense];
+      setExpenses(newExpenses);
+      setCharge("");
+      setAmount(0);
+    } else {
+      console.log("error");
+    }
+  };
 
   return (
     <main className="main-container">
       <h1>예산 계산기</h1>
 
       <div style={{ width: "100%", backgroundColor: "white", padding: "1rem" }}>
-        <ExpenseForm />
+        <ExpenseForm
+          charge={charge}
+          handleCharge={handleCharge}
+          amount={amount}
+          handleAmount={handleAmount}
+          handleSubmit={handleSubmit}
+        />
       </div>
       <div style={{ width: "100%", backgroundColor: "white", padding: "1rem" }}>
         <ExpenseList initialExpenses={expenses} handleDelete={handleDelete} />
