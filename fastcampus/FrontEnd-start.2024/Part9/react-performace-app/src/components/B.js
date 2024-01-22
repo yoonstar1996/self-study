@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 export default function B({ message, posts }) {
+  console.log("B Component is Rendering");
+  const testF = useCallback(() => {}, []);
   return (
     <div>
       <h1>B Components</h1>
       <Message message={message} />
-      <List posts={posts} />
+      <List posts={posts} testF={testF} />
     </div>
   );
 }
 
-const Message = ({ message }) => {
+const Message = React.memo(({ message }) => {
   return <p>{message}</p>;
-};
+});
 
-const List = ({ posts }) => {
+const List = React.memo(({ posts, testF }) => {
+  console.log("List Component is Rendering");
   return (
     <ul>
       {posts.map((post) => (
@@ -22,12 +25,12 @@ const List = ({ posts }) => {
       ))}
     </ul>
   );
-};
+});
 
-const ListItem = ({ post }) => {
+const ListItem = React.memo(({ post }) => {
   return (
     <li key={post.id}>
       <p>{post}</p>
     </li>
   );
-};
+});
