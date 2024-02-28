@@ -26,7 +26,7 @@ export const TodoForm = () => {
         onChange={(e) => setValue(e.target.value)}
       />
       <button type="submit" className="todo-btn">
-        Add Task
+        할 일 추가
       </button>
     </form>
   );
