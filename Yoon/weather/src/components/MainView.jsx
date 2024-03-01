@@ -72,7 +72,7 @@ export default function MainView() {
                 <p className={styles.currentDegree}>32&deg;</p>
                 <div>
                   <img src="/images/drop.png" alt="drop" />
-                  <p>15%</p>
+                  <p className={styles.fall}>15%</p>
                 </div>
               </div>
             </div>
