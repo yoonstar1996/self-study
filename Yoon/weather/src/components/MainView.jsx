@@ -10,6 +10,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function MainView() {
+  const TemporaryData = [
+    {
+      title: "습도",
+      value: "88%",
+    },
+    {
+      title: "풍속",
+      value: "10m/s",
+    },
+    {
+      title: "풍향",
+      value: "WS",
+    },
+  ];
   return (
     <>
       <div className={styles.leftContainer}>
@@ -33,11 +47,13 @@ export default function MainView() {
             <div className={styles.weatherIcon}>
               <img src="/images/10d.png" alt="MianLogo" />
             </div>
-            <div className={styles.weahterData}>
-              <div>
-                <p></p>
-                <p></p>
-              </div>
+            <div className={styles.weatherData}>
+              {TemporaryData.map((temporary, index) => (
+                <div key={index} className={styles.detailData}>
+                  <p>{temporary.title}</p>
+                  <p>{temporary.value}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
