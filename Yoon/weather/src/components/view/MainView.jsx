@@ -51,6 +51,7 @@ export default function MainView() {
               height={160}
               src="/images/10d.png"
               alt="MianLogo"
+              priority
             />
           </div>
           <div className={styles.weatherData}>
