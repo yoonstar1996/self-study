@@ -1,15 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./MainView.module.scss";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faSearchLocation,
-  faChartLine,
-  faCog,
-} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import Nav from "../nav/Nav";
+import axios from "axios";
 
 export default function MainView() {
   const TemporaryData = [
@@ -26,6 +19,24 @@ export default function MainView() {
       value: "WS",
     },
   ];
+
+  // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
+  // useEffect(() => {
+  //   let initialLat = 37.5683;
+  //   let initialLon = 126.9778;
+  //   axios
+  //     .get(
+  //       `https://api.openweathermap.org/data/2.5/onecall?lat=${initialLat}&lon=${initialLon}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
+  //     )
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
+
   return (
     <div className={styles.leftContainer}>
       <div id={styles.cityNameBox}>
