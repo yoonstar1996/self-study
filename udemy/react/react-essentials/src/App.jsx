@@ -1,15 +1,14 @@
 import CoreConcept from "./components/CoreConcept/CoreConcept.jsx";
 import Header from "./components/Header/Header.jsx";
-import { CORE_CONCEPTS } from "../data/data.js";
-import TabButton from "./components/TabButton/TabButton.jsx";
+import { CORE_CONCEPTS, EXAMPLES } from "../data/data.js";
 import { useState } from "react";
+import TabMenu from "./components/TabButton/TabMenu.jsx";
 
 function App() {
-  const [tabContent, setTabContent] = useState("Please click a button");
+  const [selectedTopic, setSelectedTopic] = useState();
 
   const handleSelect = (selectedButton) => {
-    // selectedButton => 'components', 'jsx', 'props', 'state'
-    setTabContent(selectedButton);
+    setSelectedTopic(selectedButton);
   };
 
   return (
@@ -19,22 +18,24 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            {CORE_CONCEPTS.map((item, index) => (
-              <CoreConcept key={index} {...item} />
+            {CORE_CONCEPTS.map((conceptItem, index) => (
+              <CoreConcept key={index} {...conceptItem} />
             ))}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
-          <menu>
-            <TabButton onSelect={() => handleSelect("components")}>
-              Components
-            </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
-          </menu>
-          {tabContent}
+          <TabMenu selectedTopic={selectedTopic} handleSelect={handleSelect} />
+          {!selectedTopic && <p>Please select a topic.</p>}
+          {selectedTopic && (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </div>
