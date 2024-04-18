@@ -1,4 +1,4 @@
-package student.src;
+package in28Minutes.student.src;
 
 public class StudentRunner {
   public static void main(String[] args) {
@@ -12,6 +12,9 @@ public class StudentRunner {
     int maximumMark = student.getMaximumMark();
     int minimunMark = stduent.getMinimumMark();
     Bigecimal average = student.getAverageMarks();
+
+    stduent.addNewMark(35);
+    stduent.removeMarkAtIndex(5);
 
   }
 }

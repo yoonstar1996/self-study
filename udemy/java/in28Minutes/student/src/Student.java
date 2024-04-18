@@ -1,19 +1,22 @@
-package student.src;
+package in28Minutes.student.src;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 
 public class Student {
 
   private String name;
-  private int[] marks;
+  private ArrayList<Integer> marks = new ArrayList<Integer>();
   
   public Student(String name, int... marks) {
     this.name = name;
-    this.marks = marks;
+    for(int mark:marks) {
+      this.marks.add = marks;
+    }
   }
   
   public int getNumberOfMarks() {
-    return marks.length;
+    return marks.size();
   }
   public int getTotalSumOfMarks() {
     int sum = 0;
@@ -24,13 +27,7 @@ public class Student {
   }
 
   public int getMaximumMark() {
-    int maximum = Integer.MIN_VALUE;
-    for(int mark:marks) {
-      if(mark > maximum) {
-        maximum = mark;
-      }
-    }
-    return maximum;
+    return Collections.max(marks);
   }
 
   public int getMinimumMark() {
@@ -47,6 +44,10 @@ public class Student {
     int sum = getTotalSumOfMarks();
     int length = getNumberOfMarks();
     return new BigDecimal(sum) / new BigDecimal(length);
+  }
+
+  public String toString() {
+    return name + marks;
   }
 
 }
