@@ -6,6 +6,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StringEqualsEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap03_연산자/example03.StringEqualsEx",
+      "projectName": "Practice_Chap03_연산자"
+    },
+    {
+      "type": "java",
+      "name": "AccuracyEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap03_연산자/example03.AccuracyEx",
+      "projectName": "Practice_Chap03_연산자"
+    },
+    {
+      "type": "java",
+      "name": "ThreeOperEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap03_연산자/example03.ThreeOperEx",
+      "projectName": "Practice_Chap03_연산자"
+    },
+    {
+      "type": "java",
+      "name": "DefaultTypeEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap03_연산자/example02.DefaultTypeEx",
+      "projectName": "Practice_Chap03_연산자"
+    },
+    {
+      "type": "java",
+      "name": "BitOperatorEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap03_연산자/example02.BitOperatorEx",
+      "projectName": "Practice_Chap03_연산자"
+    },
+    {
+      "type": "java",
+      "name": "OperatorEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap03_연산자/example01.OperatorEx",
+      "projectName": "Practice_Chap03_연산자"
+    },
+    {
+      "type": "java",
       "name": "ScannerEx",
       "request": "launch",
       "mainClass": "Practice_Chap02_변수/example01.ScannerEx",
