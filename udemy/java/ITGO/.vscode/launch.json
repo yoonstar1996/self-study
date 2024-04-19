@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MethodEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap04_조건문/example03.MethodEx",
+      "projectName": "Practice_Chap04_조건문"
+    },
+    {
+      "type": "java",
+      "name": "SwitchEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap04_조건문/example02.SwitchEx",
+      "projectName": "Practice_Chap04_조건문"
+    },
+    {
+      "type": "java",
       "name": "StringEqualsEx",
       "request": "launch",
       "mainClass": "Practice_Chap03_연산자/example03.StringEqualsEx",
