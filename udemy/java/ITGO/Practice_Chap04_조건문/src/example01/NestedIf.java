@@ -3,7 +3,7 @@ package example01;
 import java.util.Scanner;
 
 // 중첩 if문
-public class IfNestedEx {
+public class NestedIf {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
 

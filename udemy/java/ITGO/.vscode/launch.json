@@ -6,6 +6,69 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ContinueEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example04.ContinueEx",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "DoWhileEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example04.DoWhileEx",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "WhileEx02",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example03.WhileEx02",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "WhileEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example03.WhileEx",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "Create_X",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example02.Create_X",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "Create_Triangle",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example02.Create_Triangle",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "InputGugudan",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example01.InputGugudan",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "NestedForEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example01.NestedForEx",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
+      "name": "ForEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap05_반복문/example01.ForEx",
+      "projectName": "Practice_Chap05_반복문"
+    },
+    {
+      "type": "java",
       "name": "MethodEx",
       "request": "launch",
       "mainClass": "Practice_Chap04_조건문/example03.MethodEx",
