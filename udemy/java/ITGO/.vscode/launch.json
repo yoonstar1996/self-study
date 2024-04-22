@@ -6,6 +6,77 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ArrayCopy",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example03.ArrayCopy",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "StringArrayEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example03.StringArrayEx",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "args": ["abcd", "1234"],
+      "type": "java",
+      "name": "Main_Arguments",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example03.Main_Arguments",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "SecondArrayEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example02.SecondArrayEx",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "SecondArrayEx03",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example02.SecondArrayEx03",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "SecondArrayEx02",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example02.SecondArrayEx02",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "SecondArrayEx01",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example02.SecondArrayEx01",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "ArrayEx04",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example01.ArrayEx04",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "ArrayEx03",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example01.ArrayEx03",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
+      "name": "ArrrayEx01",
+      "request": "launch",
+      "mainClass": "Practice_Chap06_배열/example01.ArrrayEx01",
+      "projectName": "Practice_Chap06_배열"
+    },
+    {
+      "type": "java",
       "name": "ContinueEx",
       "request": "launch",
       "mainClass": "Practice_Chap05_반복문/example04.ContinueEx",
