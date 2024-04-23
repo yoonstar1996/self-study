@@ -6,6 +6,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SamsungPhoneEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap07_객체_클래스/example05.SamsungPhoneEx",
+      "projectName": "Practice_Chap07_객체_클래스"
+    },
+    {
+      "type": "java",
+      "name": "MonitorEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap07_객체_클래스/example03.MonitorEx",
+      "projectName": "Practice_Chap07_객체_클래스"
+    },
+    {
+      "type": "java",
+      "name": "StudentEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap07_객체_클래스/example02.StudentEx",
+      "projectName": "Practice_Chap07_객체_클래스"
+    },
+    {
+      "type": "java",
+      "name": "FieldInitEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap07_객체_클래스/example01.FieldInitEx",
+      "projectName": "Practice_Chap07_객체_클래스"
+    },
+    {
+      "type": "java",
+      "name": "Monitor",
+      "request": "launch",
+      "mainClass": "Practice_Chap07_객체_클래스/example01.Monitor",
+      "projectName": "Practice_Chap07_객체_클래스"
+    },
+    {
+      "type": "java",
       "name": "ArrayCopy",
       "request": "launch",
       "mainClass": "Practice_Chap06_배열/example03.ArrayCopy",
