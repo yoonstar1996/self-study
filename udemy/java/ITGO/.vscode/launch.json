@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MemberEx",
+      "request": "launch",
+      "mainClass": "Practice_Chap07_2_변수와_메서드/example02.MemberEx",
+      "projectName": "Practice_Chap07_2_변수와_메서드"
+    },
+    {
+      "type": "java",
       "name": "SamsungPhoneEx",
       "request": "launch",
       "mainClass": "Practice_Chap07_객체_클래스/example05.SamsungPhoneEx",
