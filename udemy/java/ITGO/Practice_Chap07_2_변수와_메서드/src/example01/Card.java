@@ -1,4 +1,4 @@
-package example06;
+package example01;
 
 public class Card {
 
