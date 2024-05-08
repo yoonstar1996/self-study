@@ -36,7 +36,8 @@ public class ArrayEqualsDeepEqualsEx {
     // 얕은 비교
     System.out.println(Arrays.equals(c1, c2)); // true
     System.out.println(Objects.equals(c1, c2)); // false
-    System.out.println(c1 + ", " + c2); // [LarraysExample.Car;@7cd62f43, [LarraysExample.Car;@6d4b1c02
+    System.out.println(c1 + ", " + c2);
+    // [LarraysExample.Car;@7cd62f43, [LarraysExample.Car;@6d4b1c02
 
     System.out.println();
     
@@ -45,6 +46,7 @@ public class ArrayEqualsDeepEqualsEx {
       {1, 2}, {3, 4}
     };
     
+    // 얕은 복사
     int[][] cloned2 = Arrays.copyOf(ori2, ori2.length);
     // 얕은 비교
     System.out.println(Arrays.equals(ori2, cloned2)); // true
@@ -61,5 +63,26 @@ public class ArrayEqualsDeepEqualsEx {
     
     cloned2[0][0] = 10;
     System.out.println(Arrays.deepEquals(ori2, cloned2)); // true
+    System.out.println(ori2[0][0]); // 10
+    System.out.println(cloned2[0][0]); // 10
+    
+    System.out.println();
+    
+    // 깊은 복사
+    int[][] cloned3 = Arrays.copyOf(ori2, ori2.length);
+    cloned3[0] = Arrays.copyOf(ori2[0], ori2[0].length);
+    cloned3[1] = Arrays.copyOf(ori2[1], ori2[1].length);
+    
+    System.out.println(Arrays.equals(ori2, cloned3)); // false
+    System.out.println(Arrays.deepEquals(ori2, cloned3)); // true
+    System.out.println(Objects.equals(ori2, cloned3)); // false
+    System.out.println(ori2 + ", " + cloned3); // [[I@6093dd95, [[I@39c0f4a
+
+    System.out.println();
+    
+    cloned3[0][0] = 70;
+    System.out.println(Arrays.deepEquals(ori2, cloned3)); // false
+    System.out.println(ori2[0][0]); // 10
+    System.out.println(cloned3[0][0]); // 70
   }
 }
