@@ -23,8 +23,12 @@ public class TimeZoneEx {
     if(i == 0) str = "AM";
     else str = "PM";
 
-    return date.get(Calendar.YEAR) + "년 " + (date.get(Calendar.MONTH) + 1) + "월 " +date.get(Calendar.DATE) + "일 " +
-    str + " " + date.get(Calendar.HOUR_OF_DAY) + "시 " + date.get(Calendar.MINUTE) + "분 " + date.get(Calendar.SECOND) + "초";
+    return date.get(Calendar.YEAR) + "년 " +
+    (date.get(Calendar.MONTH) + 1) + "월 " +
+    date.get(Calendar.DATE) + "일 " +
+    str + " " + date.get(Calendar.HOUR_OF_DAY) + "시 " +
+    date.get(Calendar.MINUTE) + "분 " +
+    date.get(Calendar.SECOND) + "초";
     // 2024년 5월 9일 AM 8시 27분 45초
   }
 }
