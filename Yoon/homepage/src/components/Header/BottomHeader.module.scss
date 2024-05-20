@@ -1,0 +1,42 @@
+.container {
+  position: relative;
+  padding: 0 30px;
+  border-radius: 60px;
+  background-color: white;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+
+  li {
+    padding: 0 20px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  a {
+    font-size: 14px;
+    font-weight: 400px;
+    color: red;
+  }
+}
+
+.orderList {
+  display: flex;
+  align-items: center;
+  background-color: #17a27b;
+  color: white;
+  font-size: 18px;
+  border-radius: 44px;
+  padding: 10px 20px;
+  cursor: pointer;
+  div {
+    margin-right: 5px;
+  }
+}

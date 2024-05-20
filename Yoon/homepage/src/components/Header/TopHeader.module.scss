@@ -1,0 +1,29 @@
+.inner {
+  padding: 0 30px;
+  height: 38px;
+}
+
+.list {
+  display: flex;
+  float: right;
+  margin: 8px 0 0 0;
+
+  li {
+    position: relative;
+    float: left;
+    padding: 0 12px;
+    cursor: pointer;
+  }
+
+  li:not(:last-child)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    width: 1px;
+    height: 14px;
+    margin-top: -6px;
+    background-color: #909090;
+  }
+}

@@ -1,12 +1,14 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
+import Layout from "@/components/Layout/Layout";
+import TopView from "@/components/Main/TopView/TopView";
 
 export default function Home() {
   return (
-    <>
-      <div>하이</div>
-      <div>ㅎ아</div>
-    </>
+    <Layout>
+      <Header />
+      <TopView />
+      <Footer />
+    </Layout>
   );
 }
