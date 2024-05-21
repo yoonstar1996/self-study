@@ -1,0 +1,113 @@
+.inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 20px 90px;
+}
+
+.titleBox {
+  text-align: center;
+}
+
+.mainTitle {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 140%;
+}
+
+.subTitle {
+  margin-top: 5px;
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  line-height: 140%;
+}
+
+.contentBox {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+}
+
+.image {
+  background-image: url("/images/brandNews/evt_bnr_img00_v2.jpg");
+  width: 590px;
+  height: 560px;
+  background-repeat: no-repeat;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: calc(100% - 590px);
+}
+
+.noticeBox,
+.customerServiceBox {
+  position: relative;
+  margin-left: 10px;
+  padding: 6.5%;
+  height: 270px;
+  border: 1px solid #dbdbdb;
+}
+
+.noticeTitleBox,
+.customerServiceTitleBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noticeTitle,
+.customerServiceTitle {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 140%;
+}
+
+.plusIcon {
+  background-image: url("/images/brandNews/ico_board_more.png");
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.notice {
+  margin-top: 27px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noticeContent {
+  max-width: 80%;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  line-height: 140%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.customerServiceNumber {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 100%;
+  color: #18a27b;
+  margin-top: 25px;
+}
+
+.time {
+  margin-top: 30px;
+}
+.time,
+.exception {
+  font-size: 18px;
+  color: #929292;
+  letter-spacing: -0.3px;
+  line-height: 160%;
+}

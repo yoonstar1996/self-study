@@ -1,0 +1,88 @@
+.background {
+  background-image: url("/images/brandStory/bg_section_story.jpg");
+}
+
+.inner {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 80px 20px 90px;
+}
+
+.titleBox {
+  text-align: center;
+  color: white;
+}
+
+.mainTitle {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  line-height: 140%;
+}
+
+.subTitle {
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  line-height: 140%;
+}
+
+.contentBox {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  padding: 5%;
+  height: 560px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.image1,
+.image2,
+.image3 {
+  margin: 0 auto 18px;
+  width: 75px;
+  height: 75px;
+}
+
+.image1 {
+  background-image: url("/images/brandStory/ico_bs_nth1_off.png");
+}
+.image2 {
+  background-image: url("/images/brandStory/ico_bs_nth2_off.png");
+}
+.image3 {
+  background-image: url("/images/brandStory/ico_bs_nth3_off.png");
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 140%;
+}
+
+.desc {
+  position: relative;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+  line-height: 160%;
+  padding-top: 40px;
+  margin-top: 20px;
+}
+
+.desc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 42px;
+  height: 1px;
+  margin-left: -21px;
+  background-color: #666;
+}

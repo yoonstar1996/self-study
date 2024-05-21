@@ -1,0 +1,85 @@
+.container {
+  // position: relative;
+  height: 100vh;
+}
+
+.background {
+  width: 100%;
+  min-width: 1200px;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  background-image: url("/images/topView/topView.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.number {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1240px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 250px;
+  z-index: 10;
+
+  ul {
+    display: flex;
+    float: right;
+  }
+
+  .active {
+  }
+
+  .hidden {
+    opacity: 0.5;
+  }
+}
+
+.button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.textBox {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  color: white;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.companyName {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.descBox {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 48px;
+  margin-right: 40px;
+}
+
+.desc {
+  font-size: 22px;
+  line-height: 40px;
+}

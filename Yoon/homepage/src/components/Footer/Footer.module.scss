@@ -1,0 +1,50 @@
+.container {
+  padding: 0 15px;
+  background-color: #1a1a1a;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
+  text-align: left;
+  color: #626262;
+  font-size: 18px;
+  line-height: 140%;
+}
+
+.customerService {
+  margin-top: 20px;
+}
+
+.textBox {
+  display: flex;
+  margin-top: 15px;
+}
+
+.represent {
+  position: relative;
+  padding: 0 10px 0 0;
+  vertical-align: middle;
+}
+
+.represent::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 0;
+  background-color: #626262;
+  width: 1px;
+  height: 17px;
+}
+
+.address {
+  padding-left: 10px;
+}
+
+.copyRight {
+  margin-top: 10px;
+}
