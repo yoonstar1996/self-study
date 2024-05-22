@@ -1,0 +1,101 @@
+.container {
+  background-color: #f8f8f8;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+}
+
+.review {
+  position: relative;
+  background-color: #17a27b;
+  width: 285px;
+  height: 285px;
+  margin-right: 20px;
+}
+
+.textBox {
+  padding: 30px 40px;
+  color: white;
+  font-size: 32px;
+  line-height: 140%;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.arrowBox {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.leftArrow,
+.rightArrow {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-position: 50% 50%;
+  margin: 0 1px;
+  outline: 0;
+  background-size: 12px auto;
+  cursor: pointer;
+}
+
+.leftArrow {
+  background-image: url("/images/houseMenu/arr_intro_prev.png");
+}
+.rightArrow {
+  background-image: url("/images/houseMenu/arr_intro_next.png");
+}
+
+.slideBox {
+  display: flex;
+  gap: 20px;
+}
+
+.image1,
+.image2,
+.image3 {
+  width: 285px;
+  height: 285px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.image1 {
+  background-image: url("/images/realReview/review1.jpg");
+}
+.image2 {
+  background-image: url("/images/realReview/review2.jpg");
+}
+.image3 {
+  background-image: url("/images/realReview/review3.jpg");
+}
+
+.desc {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  height: 60px;
+  padding: 0 20px;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-color: rgba(0, 0, 0, 0.5);
+  line-height: 60px;
+}

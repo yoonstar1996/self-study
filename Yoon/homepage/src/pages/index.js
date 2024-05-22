@@ -5,6 +5,7 @@ import Container from "@/components/Container/Container";
 import HouseMenu from "@/components/Main/HouseMenu/HouseMenu";
 import BrandStory from "@/components/Main/BrandStory/BrandStory";
 import HouseNews from "@/components/Main/HouseNews/HouseNews";
+import RealReview from "@/components/Main/RealReview/RealReview";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <HouseMenu />
       <BrandStory />
       <HouseNews />
+      <RealReview />
       {/* </Container> */}
       <Footer />
     </>

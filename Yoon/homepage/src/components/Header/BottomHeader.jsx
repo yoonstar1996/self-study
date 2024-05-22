@@ -7,14 +7,7 @@ export default function BottomHeader() {
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
-        <div className={styles.logo}>
-          <Image
-            src="/images/logo/logo.png"
-            alt="logo"
-            width={100}
-            height={100}
-          />
-        </div>
+        <div className={styles.logo}></div>
         <div className={styles.nav}>
           <ul className={styles.list}>
             <li>브랜드</li>
