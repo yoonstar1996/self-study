@@ -1,13 +1,13 @@
 import React from "react";
-import TopHeader from "./TopHeader";
-import BottomHeader from "./BottomHeader";
+import LoginBar from "./LoginBar/LoginBar";
+import MenuBar from "./MenuBar/MenuBar";
 import styles from "./Header.module.scss";
 
 export default function Header() {
   return (
-    <div className={styles.container}>
-      <TopHeader />
-      <BottomHeader />
-    </div>
+    <nav className={styles.container}>
+      <LoginBar />
+      <MenuBar />
+    </nav>
   );
 }
