@@ -1,48 +1,26 @@
-typeof "문자열"; // string
-typeof 123; // number
-typeof true; // boolean
-typeof null; // object
-typeof undefined; // undefined
-typeof Symbol; // symbol
+// 경계 다루기(min - max)
+// 1. 최솟값과 최댓값을 다룬다.
+// 2. 최솟값과 최댓값 포함 여부를 결정해야한다.(이상-초과/아하-미만)
+// 3. 혹은 네이밍에 최솟값과 최댓값 포함 여부를 표현한다.
 
-function myFunction() {}
-class MyClass {}
-const str = new String("문자열");
-
-typeof myFunction; // function
-typeof MyClass; // function
-typeof str; // object
-
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
+function genRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const p = {
-  name: "yoon",
-  age: 29,
-};
+// 상수
+const MIN_NUMBER_LIMIT = 1;
+const MAX_IN_NUMBER = 100;
 
-const yoon = new Person("yoon", 29);
+genRandomNumber(MIN_NUMBER_LIMIT, MAX_IN_NUMBER);
 
-yoon instanceof Person; // true
-p instanceof Person; // false
+const MAX_AGE = 20;
 
-const arr = [];
-const func = function () {};
-const date = new Date();
-
-arr instanceof Array; // true
-func instanceof Function; // true
-date instanceof Date; // true
-
-arr instanceof Object; // true
-func instanceof Object; // true
-date instanceof Object; // true
-
-Object.prototype.toString.call(""); // '[object String]'
-Object.prototype.toString.call(1); // '[object Number]'
-Object.prototype.toString.call(true); // '[object Boolean]'
-Object.prototype.toString.call(null); // '[object Null]'
-Object.prototype.toString.call(undefined); // '[object Undefined]'
-Object.prototype.toString.call(Symbol()); // '[object Symbol]'
+function isAdult(age) {
+  // 최솟값, 최댓값(포함되는지, 안되는지)
+  // 이상, 초과 vs 이하, 미만
+  if (age >= MAX_AGE) {
+    return true;
+  } else {
+    return false;
+  }
+}

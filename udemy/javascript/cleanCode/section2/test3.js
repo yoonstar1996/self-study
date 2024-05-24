@@ -1,40 +1,21 @@
-var global = 0;
+"1" == 1; // true
+1 == true; // true
 
-function outer() {
-  console.log(global); // undefined
-  var global = 5;
+"1" === 1; // false
+1 === true; // false
 
-  function inner() {
-    var global = 10;
+"1" == 1; // 느슨한 검사 => 형 변환
+11 + "문자와 결합"; // "11문자와 결합"
+!!"문자열"; // true
+!!""; // false
+parseInt("9.999", 10); // 9
 
-    console.log(global); // 10
-  }
+Number.MAX_SAFE_INTEGER; // 9007199254740991
+Number.MIN_SAFE_INTEGER; // -9007199254740991
+Number.isInteger(123); // true
+Number.isInteger(123.456); // false
 
-  inner();
-
-  global = 1;
-
-  console.log(global); // 1
-}
-
-outer();
-
-function duplicatedVar() {
-  var a;
-
-  console.log(a); // undefined
-
-  var a = 100;
-
-  console.log(a); // 100
-}
-
-duplicatedVar();
-
-var sum;
-
-sum = function () {
-  return 1 + 2;
-};
-
-console.log(sum); // 3
+typeof 123 === "number"; // true
+isNaN(123); // false
+isNaN(123 + "테스트"); // true
+Number.isNaN(123 + "테스트"); // false

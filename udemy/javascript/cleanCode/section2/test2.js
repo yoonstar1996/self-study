@@ -1,34 +1,21 @@
-function getElements() {
-  return {
-    title: document.querySelector(".title"),
-    text: document.querySelector(".text"),
-    value: document.querySelector(".value"),
-  };
-}
+!null; // true
+!!null; // false
 
-function getDateTime(targetDate) {
-  const month = targetDate.getMonth();
-  const day = targetDate.getDate();
-  const hour = targetDate.getHour();
+null === false; // false
 
-  return {
-    month: month >= 10 ? month : "0" + month,
-    day: day >= 10 ? day : "0" + day,
-    hour: hour >= 10 ? hour : "0" + hour,
-  };
-}
+!null === true; // true
 
-function getDateTime() {
-  const currentDatTime = getDateTime(new Date());
-  return {
-    month: (currentDatTime.month = "분 전"),
-    day: (currentDatTime.day = "분 전"),
-    hour: (currentDatTime.hour = "분 전"),
-  };
-}
+// null => math => 0
+null + 123; // 123
 
-function genRandomNumber(min, max) {
-  const randomNumber = Math.floor(Math.random() * (max + 1) + min);
+// 선언했지만 값은 정의되지 않고 할당 X
+let verb;
+typeof verb; // undefined
 
-  return randomNumber;
-}
+verb + 10; // NaN
+
+!undefined; // true
+
+undefined == null; // true
+undefined === null; // false
+!undefined === !null; // true
