@@ -17,7 +17,7 @@ function loginService(isLogin, user) {
   }
 }
 
-//
+// 위 코드를 아래와 같이 변경한다.
 
 function loginService(isLogin, user) {
   // Early Return
