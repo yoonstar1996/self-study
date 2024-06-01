@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans+KR:wght@100..900&display=swap");
+@font-face {
+  font-family: "handel gothic";
+  src: url("../font/handel gothic.ttf") format("truetype");
+}
+
+/* Layout */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+.en {
+  font-family: "handle gothic", sans-serif;
+}
+.en_s {
+  font-family: "Dancing Script", cursive;
+}
+
+/* header */
+.innerHeader {
+  max-width: 1720px;
+  height: 110px;
+  line-height: 110px;
+  margin: auto;
+}
+
+.innerHeader .logo {
+  float: left;
+}
+
+.innerHeader .logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* gnb + sns */
+.innerHeader .mainMenu {
+  float: right;
+  overflow: hidden;
+  position: relative;
+}
+
+span.bar {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 0;
+  height: 3px;
+  background-color: #e7e7e7;
+  transition: 0.4s;
+}
+
+/* gnb */
+.innerHeader .mainMenu .gnb {
+  float: left;
+}
+
+.innerHeader .mainMenu .gnb li {
+  float: left;
+  margin: 0 20px;
+}
+
+.innerHeader .mainMenu .gnb li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #555;
+  font-weight: 600;
+}
+
+/* sns */
+.innerHeader .mainMenu .sns {
+  float: left;
+  margin-left: 300px;
+}
+
+.innerHeader .mainMenu .sns li {
+  float: left;
+}
+
+.innerHeader .mainMenu .sns li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+}
+
+/* 타이틀, 텍스트, 더보기 버튼 공통 클래스 */
+.tit {
+  font-size: 50px;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.tit span {
+  display: block;
+}
+
+.tit span b {
+  font-weight: normal;
+}
+
+.tit span.en_s {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.txt p {
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.txt p b {
+  font-weight: normal;
+}
+
+.moreBtn {
+  display: inline-block;
+  color: #333;
+  position: relative;
+  padding-left: 45px;
+  margin-top: 20px;
+  transform: skewX(-15deg) translateX(5px);
+  transition: all 0.15s;
+}
+
+.moreBtn:before {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background-color: #333;
+  position: absolute;
+  left: 0;
+  top: 54%;
+}
+
+.moreBtn:hover,
+.moreBtn:focus {
+  transform: skewX(0deg) translateX(0px);
+  font-weight: bold;
+}
+
+/* section.visual */
+section.visual {
+  max-width: 1720px;
+  margin: auto;
+  overflow: hidden;
+}
+
+section.visual .mainImg {
+  float: left;
+  width: 50%;
+}
+
+section.visual .mainImg img {
+  width: 90%;
+}
+
+section.visual .mainTxt {
+  float: left;
+  width: 50%;
+  margin-top: 180px;
+}
+
+section.visual .mainTxt .tit {
+  font-size: 72px;
+}
+
+section.visual .mainTxt .tit span.en_s {
+  margin-bottom: 10px;
+}
+
+section.visual .mainTxt .tit .gray {
+  color: #ccc;
+}
+
+section.visual .mainTxt .txt {
+  padding: 50px 0 0 70px;
+}
+
+/* section안에 .inner(공통 넓이 가이드) .box(플루트) */
+section .inner {
+  width: 1320px;
+  margin: auto;
+  overflow: hidden;
+}
+
+section .inner .box {
+  float: left;
+  width: 50%;
+}
+
+/* section.journal */
+section.journal {
+  position: relative;
+  padding: 190px 0 120px;
+}
+
+section.journal .scroll {
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  font-size: 10px;
+  letter-spacing: 5px;
+  writing-mode: vertical-rl;
+  padding-top: 90px;
+}
+
+section.journal .scroll:before {
+  content: "";
+  position: absolute;
+  height: 75px;
+  width: 1px;
+  background-color: #333;
+  top: 0;
+  left: 6px;
+}
+
+section.journal .inner .box .img {
+  padding-top: 100px;
+}
+
+section.journal .inner .box .tit {
+  margin-bottom: 40px;
+}
+
+section.journal .inner .box ul {
+  border-top: 1px solid #e6e6e6;
+  padding-top: 40px;
+}
+
+section.journal .inner .box ul li {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+section.journal .inner .box ul li h3 {
+  float: left;
+  width: 22%;
+}
+
+section.journal .inner .box ul li p {
+  float: left;
+  width: 78%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #888;
+}
+
+section.journal .inner .box .moreBtn {
+  clear: both;
+  margin-left: 22%;
+}
+
+/* section.service */
+section.service {
+  padding: 190px 0;
+}
+
+section.service .inner {
+  /* background-color: red; */
+}
+
+section.service .inner .box .img {
+  margin-top: 60px;
+}
+
+section.service .inner .box.design {
+  width: 45%;
+  margin-top: -40%;
+  padding-top: 60px;
+  border-top: 1px solid #c4e5ea;
+}
+
+section.service .inner .box.design .tit {
+  font-size: 30px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+/* section.customer */
+section.customer {
+  background-image: url("../img/img_04.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 160px;
+  text-align: center;
+}
+
+section.customer .tit {
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+section.customer .txt {
+  color: #777;
+}
+
+/* section.team */
+section.team {
+  padding: 190px 0;
+  position: relative;
+}
+
+section.team .inner .box.left {
+  text-align: right;
+  padding-right: 80px;
+  box-sizing: border-box;
+}
+
+section.team .inner .box .tit {
+  margin-top: 40px;
+}
+
+section.team .inner .box .img {
+  margin-top: 100px;
+}
+
+section.team .inner .box .txt {
+  margin: 30px 0;
+}
+
+/* footer */
+footer {
+  width: 1320px;
+  margin: auto;
+}
+
+footer .top .tit {
+  color: #e6e6e6;
+  font-size: 62px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+footer .bottom {
+  border-top: 1px solid #e6e6e6;
+  padding: 40px 0 100px;
+}
+
+footer .bottom ul {
+  overflow: hidden;
+}
+
+footer .bottom ul li {
+  float: left;
+  width: 23%;
+  color: #aaa;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer .bottom ul li:nth-child(1) {
+  width: 31%;
+  font-size: 28px;
+  color: #000;
+  line-height: 1.1;
+}
+
+footer .bottom ul li b {
+  color: #333;
+  font-weight: normal;
+}
+
+footer .bottom ul li b:nth-child(1) {
+  margin-bottom: 12px;
+  display: inline-block;
+  font-size: 14px;
+  color: #333;
+}
