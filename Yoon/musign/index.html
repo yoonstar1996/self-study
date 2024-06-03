@@ -2,17 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=1.0"
+    />
     <title>뮤자인</title>
     <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
     <!-- script -->
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
     <script src="js/script_main.js"></script>
   </head>
   <body>
     <div class="wrap">
+      <!-- menuOpen -->
+      <div class="menuOpen">
+        <button class="open">
+          <img src="img/open-icon.png" alt="메뉴 열기" />
+        </button>
+        <div class="menuWrap">
+          <a href="#" class="close"><img src="img/close.png" alt="" /></a>
+          <a href="#" class="close en">close</a>
+          <ul class="tit en animate" data-animate="motion">
+            <li>
+              <a href="#">
+                <span><b>Design</b></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><b>Capabilities</b></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><b>Case</b></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><b>Contact</b></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- header -->
       <header>
         <div class="innerHeader">
@@ -55,17 +92,19 @@
       <!-- contents -->
       <section class="visual">
         <div class="mainImg">
-          <p class="img"><img src="img/mainVisual.jpg" alt="메인 이미지" /></p>
+          <p class="img animate" data-animate="motion">
+            <img src="img/mainVisual.jpg" alt="메인 이미지" />
+          </p>
         </div>
         <div class="mainTxt">
-          <h2 class="tit en">
+          <h2 class="tit en animate" data-animate="motion">
             <span class="en_s"
               ><b>Digital experience integrated platform - musing</b></span
             >
             <span><b>Powerful and useful</b></span>
             <span class="gray"><b>Musign W. Platform</b></span>
           </h2>
-          <div class="txt">
+          <div class="txt animate" data-animate="motion">
             <p>
               <b
                 >"브랜드의 가치를 디자인하는 뮤자인은 디지털 아티스트
@@ -90,13 +129,38 @@
 
       <section class="journal">
         <p class="scroll">scroll</p>
-        <div class="circleBox"></div>
+        <div class="circleBox animate" data-animate="motion">
+          <svg
+            class="svgAni"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="700px"
+            height="700px"
+            viewBox="0 0 523.421 523.104"
+            enable-background="new 0 0 523.421 523.104"
+            xml:space="preserve"
+          >
+            <path
+              stroke-miterlimit="10"
+              d="M510.844,261.637
+		c0,69.277-28.291,131.946-73.95,177.084c-44.978,44.464-106.809,71.916-175.05,71.916c-55.662,0-107.058-18.264-148.522-49.125
+		C52.343,416.126,12.843,343.494,12.843,261.637c0-56.924,19.102-109.387,51.245-151.329
+		c45.509-59.381,117.161-97.671,197.755-97.671c70.752,0,134.612,29.51,179.944,76.893
+		C484.565,134.242,510.844,194.871,510.844,261.637z"
+            />
+          </svg>
+        </div>
         <div class="inner">
           <div class="box">
-            <p class="img"><img src="img/img_01.jpg" alt="" /></p>
+            <p class="img animate" data-animate="motion">
+              <img src="img/img_01.jpg" alt="" />
+            </p>
           </div>
           <div class="box">
-            <h2 class="tit en">
+            <h2 class="tit en animate" data-animate="motion">
               <span class="en_s">we are winner</span>
               <span><b>Journal</b></span>
             </h2>
@@ -138,13 +202,13 @@
       <section class="service">
         <div class="inner">
           <div class="box">
-            <h2 class="tit en">
+            <h2 class="tit en animate" data-animate="motion">
               <span class="en_s"><b>Connected service</b></span>
               <span><b>Capabilities</b></span>
             </h2>
           </div>
           <div class="box">
-            <div class="txt">
+            <div class="txt animate" data-animate="motion">
               <p>
                 '뮤자인'은 성공적인 프로젝트 경험을 바탕으로 통찰력 있는 전략
                 수립과 글로벌 환경에 최적화된 웹사이트 제작 및 운영, 세련된
@@ -154,22 +218,26 @@
               </p>
               <a href="#" class="moreBtn">read more</a>
             </div>
-            <p class="img"><img src="img/img_02.jpg" alt="" /></p>
+            <p class="img animate" data-animate="motion">
+              <img src="img/img_02.jpg" alt="" />
+            </p>
           </div>
           <div class="box design">
-            <h2 class="tit en">
+            <h2 class="tit en animate" data-animate="motion">
               <span><b>BRAND CUSTOMERS</b></span>
               <span><b>EXPERIENCE</b></span>
               <span><b>DESIGN</b></span>
             </h2>
             <a href="#" class="moreBtn">read more</a>
-            <p class="img"><img src="img/img_03.jpg" alt="" /></p>
+            <p class="img animate" data-animate="motion">
+              <img src="img/img_03.jpg" alt="" />
+            </p>
           </div>
         </div>
       </section>
 
       <section class="customer">
-        <h2 class="tit en">
+        <h2 class="tit en animate" data-animate="motion">
           <span><b> Every customer gives us new inspiration. </b></span>
         </h2>
         <div class="txt">
@@ -179,12 +247,35 @@
       </section>
 
       <section class="team">
-        <div class="circleBox">
-          <div class="circle"></div>
+        <div class="circleBox animate" data-animate="motion">
+          <div class="circle">
+            <svg
+              class="svgAni"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="700px"
+              height="700px"
+              viewBox="0 0 523.421 523.104"
+              enable-background="new 0 0 523.421 523.104"
+              xml:space="preserve"
+            >
+              <path
+                stroke-miterlimit="10"
+                d="M510.844,261.637
+		c0,69.277-28.291,131.946-73.95,177.084c-44.978,44.464-106.809,71.916-175.05,71.916c-55.662,0-107.058-18.264-148.522-49.125
+		C52.343,416.126,12.843,343.494,12.843,261.637c0-56.924,19.102-109.387,51.245-151.329
+		c45.509-59.381,117.161-97.671,197.755-97.671c70.752,0,134.612,29.51,179.944,76.893
+		C484.565,134.242,510.844,194.871,510.844,261.637z"
+              />
+            </svg>
+          </div>
         </div>
         <div class="inner">
           <div class="box left">
-            <h2 class="tit en">
+            <h2 class="tit en animate" data-animate="motion">
               <span class="en_s">
                 <b>are you a digital expert?</b>
               </span>
@@ -198,21 +289,25 @@
               </p>
             </div>
             <a href="#" class="moreBtn">read more</a>
-            <p class="img"><img src="img/img_05.jpg" alt="" /></p>
+            <p class="img animate" data-animate="motion">
+              <img src="img/img_05.jpg" alt="" />
+            </p>
           </div>
           <div class="box">
-            <p class="img"><img src="img/img_06.jpg" alt="" /></p>
-          </div>
-          <h2 class="title en">
-            <span class="en_s"><b>Say hello</b></span>
-            <span><b>Inquiry now</b></span>
-          </h2>
-          <div class="txt">
-            <p>
-              각 분야의 전문가들과 함께하세요! 브랜드의 영향력은 곧 비즈니스의
-              경쟁력입니다.<br />
-              Our doors are always open, so come anytime.
+            <p class="img animate" data-animate="motion">
+              <img src="img/img_06.jpg" alt="" />
             </p>
+            <h2 class="tit en animate" data-animate="motion">
+              <span class="en_s"><b>Say hello</b></span>
+              <span><b>Inquiry now</b></span>
+            </h2>
+            <div class="txt">
+              <p>
+                각 분야의 전문가들과 함께하세요! 브랜드의 영향력은 곧 비즈니스의
+                경쟁력입니다.<br />
+                Our doors are always open, so come anytime.
+              </p>
+            </div>
           </div>
           <a href="#" class="moreBtn">read more</a>
         </div>
@@ -221,7 +316,7 @@
       <!-- footer -->
       <footer>
         <div class="top">
-          <h2 class="tit en">
+          <h2 class="tit en animate" data-animate="motion">
             <span><b>musigned by musign</b></span>
           </h2>
         </div>
