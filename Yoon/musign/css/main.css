@@ -263,10 +263,6 @@ section.service {
   padding: 190px 0;
 }
 
-section.service .inner {
-  /* background-color: red; */
-}
-
 section.service .inner .box .img {
   margin-top: 60px;
 }
