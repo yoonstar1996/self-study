@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meal";
+import { revalidatePath } from "next/cache";
 
 function isInvalidText(text) {
   return !text.title || text.title.trim() === "";
@@ -34,5 +35,6 @@ export async function shareMeal(prevState, formData) {
 
   // console.log(meal); // 서버에 콘솔이 찍힌다.
   await saveMeal(meal);
+  revalidatePath("/meals");
   redirect("/meals");
 }
