@@ -1,4 +1,4 @@
-import NewsList from "@/components/newsList/newsList";
+import NewsList from "@/components/newsList";
 import { getLatestNews } from "@/lib/news";
 import React from "react";
 

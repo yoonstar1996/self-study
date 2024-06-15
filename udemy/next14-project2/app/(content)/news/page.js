@@ -1,7 +1,7 @@
 import React from "react";
 
 import { DUMMY_NEWS } from "@/dummy-news";
-import NewsList from "@/components/newsList/newsList";
+import NewsList from "@/components/newsList";
 
 export default function NewsPage() {
   return (
