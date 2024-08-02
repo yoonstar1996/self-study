@@ -1,14 +1,10 @@
-import React from "react";
+import React, { memo, useContext } from "react";
 import "./TodoItem.css";
+import { TodoDispatchContext } from "../../App";
 
-export default function TodoItem({
-  id,
-  isDone,
-  content,
-  date,
-  onUpdate,
-  onDelete,
-}) {
+export default memo(function TodoItem({ id, isDone, content, date }) {
+  const { onUpdate, onDelete } = useContext(TodoDispatchContext);
+
   const onChangeCheckBox = () => {
     onUpdate(id);
   };
@@ -25,4 +21,4 @@ export default function TodoItem({
       <button onClick={onClickDeleteButton}>삭제</button>
     </div>
   );
-}
+});
