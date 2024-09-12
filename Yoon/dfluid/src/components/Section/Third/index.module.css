@@ -1,0 +1,16 @@
+.container {
+  width: 1680px;
+}
+
+.title {
+  width: 750px;
+  height: 71px;
+  margin: 120px 0 0 80px;
+
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 72px;
+  letter-spacing: -1.5%;
+}

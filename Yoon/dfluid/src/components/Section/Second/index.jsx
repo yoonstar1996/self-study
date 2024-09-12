@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
+
+const API_URL =
+  "https://api.unsplash.com/photos/random?client_id=RfZSbn_rdvEPrnhslq8HRwmCwyayZg3DBo_LDcXXaTM";
 
 export default function SecondSection() {
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState("");
   const [isError, setIsError] = useState(false);
+  const [backgroundUrl, setBackgroundUrl] = useState("");
 
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -22,18 +26,33 @@ export default function SecondSection() {
     setIsError(valid ? false : true);
   };
 
+  useEffect(() => {
+    const fetchBackgroundImage = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setBackgroundUrl(data[0].urls.full);
+      } catch (error) {
+        console.error("Error fetching background image:", error);
+      }
+    };
+
+    fetchBackgroundImage();
+  }, []);
+
   return (
     <section className={styles.container}>
+      <img className={styles.background} src={backgroundUrl} alt="Background" />
       <div className={styles.textGroup}>
         <h4 className={styles.title}>Sed ut perspiciatis unde omnis</h4>
         <p className={styles.desc}>
           {`There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything embarrassing hidden in the middle of text. All
-          the Lorem Ipsum generators on the Internet tend to repeat predefined
-          chunks as necessary.`}
+        the majority have suffered alteration in some form, by injected
+        humour, or randomised words which don't look even slightly believable.
+        If you are going to use a passage of Lorem Ipsum, you need to be sure
+        there isn't anything embarrassing hidden in the middle of text. All
+        the Lorem Ipsum generators on the Internet tend to repeat predefined
+        chunks as necessary.`}
         </p>
 
         <div className={styles.line}></div>
