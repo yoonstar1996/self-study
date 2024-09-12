@@ -1,0 +1,139 @@
+.container {
+  width: 1680px;
+  height: 740px;
+  margin-top: 110px;
+
+  color: #fff;
+  background-color: #555;
+}
+
+.textGroup {
+  width: 1520px;
+  height: 256px;
+  padding: 152px 80px 0;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -1.5%;
+  text-align: center;
+}
+
+.desc {
+  margin-top: 23px;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: -1.5%;
+  text-align: center;
+
+  color: #fff;
+  opacity: 0.8;
+}
+
+.line {
+  width: 1520px;
+  height: 1px;
+  margin: 32px 0;
+
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+.small {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -1.5%;
+  text-align: center;
+
+  color: #fff;
+  opacity: 0.6;
+}
+
+.inputGroup {
+  width: 500px;
+  height: 85px;
+  margin: 95px 590px 0;
+}
+
+.text {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: -1.5%;
+  text-align: center;
+}
+
+.box {
+  width: 500px;
+  height: 50px;
+  border: 1px solid #fff;
+  border-radius: 7px;
+  margin-top: 16px;
+
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.box.invalid {
+  border-color: #ff6633;
+}
+
+.box.valid {
+  border-color: #00c300;
+}
+
+.input {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #fff;
+}
+
+.inputGroup img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.text {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: -1.5%;
+  text-align: center;
+}
+
+.error {
+  margin: 9px 0 0 16px;
+
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.2px;
+  letter-spacing: -1.5%;
+  color: #ff6633;
+}
