@@ -10,6 +10,7 @@ export default function SecondSection() {
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState("");
   const [isError, setIsError] = useState(false);
+
   const [backgroundUrl, setBackgroundUrl] = useState("");
 
   const validateEmail = (email) => {

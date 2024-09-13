@@ -8,8 +8,10 @@ const years = [1000, 1300, 1700, 2000];
 
 export default function ThirdSection() {
   const [selectedContinent, setSelectedContinent] = useState("All");
+
   const [startYear, setStartYear] = useState(null);
   const [endYear, setEndYear] = useState(null);
+
   const [showModal, setShowModal] = useState(false);
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
@@ -60,7 +62,7 @@ export default function ThirdSection() {
   return (
     <section className={styles.container}>
       <div className={styles.title}>Duis tincidunt ut ligula vitae mollis.</div>
-      {/* 대륙 필터링 */}
+
       <div className={styles.filterContainer}>
         <div className={styles.continentFilter}>
           {continents.map((continent) => (
@@ -75,7 +77,7 @@ export default function ThirdSection() {
             </div>
           ))}
         </div>
-        {/* 연도 필터링 */}
+
         <div className={styles.yearFilter}>
           {years.map((year, index) => (
             <div key={year} className={styles.yearItem}>
@@ -127,7 +129,6 @@ export default function ThirdSection() {
         )}
       </div>
 
-      {/* 모달 부분 */}
       {showModal && (
         <div className={styles.modalContainer}>
           <div

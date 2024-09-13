@@ -29,19 +29,27 @@ export default function FirstSection() {
   const shuffleArray = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
+
   const shuffledSections = shuffleArray([...sections]);
+
   return (
-    <section className={styles.container}>
-      {shuffledSections.map((section, index) => (
-        <div key={index} className={styles.group}>
-          <div className={styles.infoGroup}>
-            <img src={section.imgSrc} alt={section.imgSrc} />
-            <h4 className={styles.title}>{section.title}</h4>
+    <div className={styles.container}>
+      <header className={styles.headerContainer}>
+        <div>Snap photos and share like</div>
+        <div>never before</div>
+      </header>
+      <section className={styles.sectionContainer}>
+        {shuffledSections.map((section, index) => (
+          <div key={index} className={styles.group}>
+            <div className={styles.infoGroup}>
+              <img src={section.imgSrc} alt={section.imgSrc} />
+              <h4 className={styles.title}>{section.title}</h4>
+            </div>
+            <p className={styles.desc}>{section.description}</p>
+            <div className={styles.button}>LEARN MORE</div>
           </div>
-          <p className={styles.desc}>{section.description}</p>
-          <div className={styles.button}>LEARN MORE</div>
-        </div>
-      ))}
-    </section>
+        ))}
+      </section>
+    </div>
   );
 }

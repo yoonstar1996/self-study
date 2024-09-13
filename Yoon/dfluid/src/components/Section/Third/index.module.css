@@ -125,11 +125,12 @@
 
 .group {
   position: relative;
-  width: 100%;
-  max-width: 400px;
+  flex: 1 1 calc(25% - 50px);
+  max-width: calc(25% - 50px);
   height: 415px;
   background-color: #d9d9d9;
   cursor: pointer;
+  padding: 10px 20px;
 }
 
 .group:hover::after {
@@ -155,14 +156,14 @@
 }
 
 .group img {
-  width: 360px;
-  height: 227.11px;
+  width: 100%;
+  height: 227px;
   border-radius: 5px;
-  margin: 0 20px;
+  display: flex;
 }
 
 .top {
-  margin: 15px 20px 9px;
+  margin: 15px 0px 9px;
   display: flex;
   justify-content: space-between;
 }
@@ -186,7 +187,7 @@
 }
 
 .desc {
-  margin: 19.89px 20px 0;
+  margin: 19.89px 0px 0;
 
   display: -webkit-box;
   -webkit-line-clamp: 6;
@@ -291,10 +292,21 @@
   .container {
     width: 100%;
     padding-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .dataGroup {
     max-width: 1200px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .group {
+    flex: 1 1 calc(50% - 30px);
+    max-width: calc(50% - 30px);
   }
 
   .title {
@@ -338,23 +350,34 @@
   }
 
   .dataGroup {
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
     margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
   }
 
   .group {
-    width: 100%;
-    max-width: 400px;
+    position: relative;
+    flex: 1 1 calc(50% - 50px);
+    max-width: calc(50% - 50px);
     height: auto;
     padding: 20px;
     background-color: #d9d9d9;
   }
 
   .group img {
-    width: 100%;
-    height: auto;
-    margin: 0;
+    width: 90%;
+    display: flex;
+    /* justify-content: center; */
+    margin: 0 auto;
+    height: 227px;
+  }
+
+  .top {
+    width: 90%;
+    margin: 15px auto 9px;
   }
 
   .modalContent {
@@ -383,6 +406,7 @@
   .container {
     width: 100%;
     padding-bottom: 40px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
