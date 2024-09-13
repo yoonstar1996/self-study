@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
+import backgroundImage from "../../../images/section2/background.jpg";
+import buttonImage from "../../../images/section2/paper-plane.png";
 
 const API_URL =
   "https://api.unsplash.com/photos/random?client_id=QZCj0_63EH2V1vxd72goblk34jPHcIP1y8ieeOKImoo";
@@ -31,7 +33,6 @@ export default function SecondSection() {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        console.log(data);
         setBackgroundUrl(data.urls.regular);
       } catch (error) {
         console.error("Error fetching background image:", error);
@@ -43,7 +44,13 @@ export default function SecondSection() {
 
   return (
     <section className={styles.container}>
-      <img className={styles.background} src={backgroundUrl} alt="Background" />
+      {/* <img className={styles.background} src={backgroundUrl} alt="Background" /> */}
+      <img
+        className={styles.background}
+        src={backgroundImage}
+        alt="Background"
+      />
+      <div className={styles.overlay} />
       <div className={styles.textGroup}>
         <h4 className={styles.title}>Sed ut perspiciatis unde omnis</h4>
         <p className={styles.desc}>
@@ -76,7 +83,7 @@ export default function SecondSection() {
             onChange={handleInputChange}
           />
           <img
-            src="/images/section2/paper-plane.png"
+            src={buttonImage}
             alt="paper-plane"
             onClick={handleButtonClick}
           />
