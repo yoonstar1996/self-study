@@ -28,19 +28,19 @@ export default function SecondSection() {
     setIsError(valid ? false : true);
   };
 
-  useEffect(() => {
-    const fetchBackgroundImage = async () => {
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        setBackgroundUrl(data.urls.regular);
-      } catch (error) {
-        console.error("Error fetching background image:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchBackgroundImage = async () => {
+  //     try {
+  //       const response = await fetch(API_URL);
+  //       const data = await response.json();
+  //       setBackgroundUrl(data.urls.regular);
+  //     } catch (error) {
+  //       console.error("Error fetching background image:", error);
+  //     }
+  //   };
 
-    fetchBackgroundImage();
-  }, []);
+  //   fetchBackgroundImage();
+  // }, []);
 
   return (
     <section className={styles.container}>
