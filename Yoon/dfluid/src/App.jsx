@@ -7,9 +7,9 @@ import ThirdSection from "./components/Section/Third";
 function App() {
   return (
     <div className="container">
-      <Header />
-      <FirstSection />
-      <SecondSection />
+      {/* <Header /> */}
+      {/* <FirstSection /> */}
+      {/* <SecondSection /> */}
       <ThirdSection />
     </div>
   );

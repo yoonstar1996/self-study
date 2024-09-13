@@ -34,8 +34,10 @@ export default function FirstSection() {
     <section className={styles.container}>
       {shuffledSections.map((section, index) => (
         <div key={index} className={styles.group}>
-          <img src={section.imgSrc} alt={section.imgSrc} />
-          <h4 className={styles.title}>{section.title}</h4>
+          <div className={styles.infoGroup}>
+            <img src={section.imgSrc} alt={section.imgSrc} />
+            <h4 className={styles.title}>{section.title}</h4>
+          </div>
           <p className={styles.desc}>{section.description}</p>
           <div className={styles.button}>LEARN MORE</div>
         </div>

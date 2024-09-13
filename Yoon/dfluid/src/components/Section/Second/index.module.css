@@ -1,10 +1,10 @@
 .container {
   position: relative;
-  width: 1680px;
-  height: 740px;
-  margin-top: 110px;
+  width: 100%;
+  max-width: 1680px;
+  margin: 110px auto 0;
   color: #fff;
-  overflow: hidden;
+  padding: 100px 0;
 }
 
 .background {
@@ -30,9 +30,7 @@
 
 .textGroup {
   position: relative;
-  width: 1520px;
-  height: 256px;
-  padding: 152px 80px 0;
+  padding: 0 80px;
   z-index: 2;
 }
 
@@ -62,9 +60,10 @@
 }
 
 .line {
-  width: 1520px;
+  width: 100%;
+  max-width: 1520px;
   height: 1px;
-  margin: 32px 0;
+  margin: 32px auto;
 
   background-color: #fff;
   opacity: 0.5;
@@ -85,9 +84,7 @@
 
 .inputGroup {
   position: relative;
-  width: 500px;
-  height: 85px;
-  margin: 95px 590px 0;
+  margin: 95px 0;
   z-index: 2;
 }
 
@@ -103,10 +100,9 @@
 
 .box {
   width: 500px;
-  height: 50px;
   border: 1px solid #fff;
   border-radius: 7px;
-  margin-top: 16px;
+  margin: 16px auto 0;
 
   display: flex;
   align-items: center;
@@ -161,4 +157,113 @@
   line-height: 19.2px;
   letter-spacing: -1.5%;
   color: #ff6633;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin-top: 60px;
+  }
+
+  .textGroup {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 22px;
+    line-height: 34px;
+  }
+
+  .desc {
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 20px;
+  }
+
+  .line {
+    margin: 20px 0;
+  }
+
+  .small {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .inputGroup {
+    margin: 50px auto 0;
+    width: 90%;
+  }
+
+  .box {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+
+  .input {
+    height: 45px;
+    font-size: 14px;
+  }
+
+  .inputGroup img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .error {
+    margin: 10px 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 30px;
+    padding: 50px 0px;
+  }
+
+  .textGroup {
+    padding: 0 10px;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .desc {
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 15px;
+  }
+
+  .line {
+    margin: 15px 0;
+  }
+
+  .small {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .inputGroup {
+    margin: 30px auto 0;
+  }
+
+  .box {
+    max-width: 400px;
+    margin-top: 10px;
+  }
+
+  .input {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .inputGroup img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .error {
+    margin: 8px 0 0;
+  }
 }

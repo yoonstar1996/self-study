@@ -1,14 +1,18 @@
 .container {
-  width: 1520px;
-  height: 352px;
+  max-width: 1520px;
   margin: 34px 80px 0;
   display: flex;
   gap: 20px;
 }
 
 .group {
-  width: 493px;
-  height: 352px;
+  max-width: 493px;
+}
+
+.infoGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .group img {
@@ -17,8 +21,6 @@
 }
 
 .title {
-  width: 493px;
-  height: 36px;
   margin-top: 40px;
 
   font-family: "Montserrat", sans-serif;
@@ -30,8 +32,6 @@
 }
 
 .desc {
-  width: 493px;
-  height: 90px;
   margin-top: 24px;
 
   font-family: "Montserrat", sans-serif;
@@ -42,7 +42,6 @@
 }
 
 .button {
-  width: 493px;
   height: 30px;
   margin-top: 24px;
 
@@ -55,4 +54,68 @@
   color: #18a0fb;
 
   cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .group {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infoGroup {
+    align-items: center;
+  }
+
+  .group img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .title,
+  .desc,
+  .button {
+    text-align: center;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .group {
+    height: auto; /* 높이 자동 조정 */
+  }
+
+  .infoGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .group img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .title,
+  .desc,
+  .button {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .desc {
+    height: auto;
+  }
 }
