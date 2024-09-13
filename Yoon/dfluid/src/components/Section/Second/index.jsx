@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import backgroundImage from "../../../images/section2/background.jpg";
 import buttonImage from "../../../images/section2/paper-plane.png";
 
 const API_URL =
   "https://api.unsplash.com/photos/random?client_id=QZCj0_63EH2V1vxd72goblk34jPHcIP1y8ieeOKImoo";
 
 export default function SecondSection() {
+  // 이메일 유효성 관련 상태
   const [email, setEmail] = useState("");
   const [isValid, setIsValid] = useState("");
+
+  // 에러 관련 상태
   const [isError, setIsError] = useState(false);
 
   const [backgroundUrl, setBackgroundUrl] = useState("");
 
+  // 이메일 유효성 검사
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
@@ -29,28 +32,24 @@ export default function SecondSection() {
     setIsError(valid ? false : true);
   };
 
-  // useEffect(() => {
-  //   const fetchBackgroundImage = async () => {
-  //     try {
-  //       const response = await fetch(API_URL);
-  //       const data = await response.json();
-  //       setBackgroundUrl(data.urls.regular);
-  //     } catch (error) {
-  //       console.error("Error fetching background image:", error);
-  //     }
-  //   };
+  // 임의의 사진 받아오기
+  useEffect(() => {
+    const fetchBackgroundImage = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setBackgroundUrl(data.urls.regular);
+      } catch (error) {
+        console.error("Error fetching background image:", error);
+      }
+    };
 
-  //   fetchBackgroundImage();
-  // }, []);
+    fetchBackgroundImage();
+  }, []);
 
   return (
     <section className={styles.container}>
-      {/* <img className={styles.background} src={backgroundUrl} alt="Background" /> */}
-      <img
-        className={styles.background}
-        src={backgroundImage}
-        alt="Background"
-      />
+      <img className={styles.background} src={backgroundUrl} alt="Background" />
       <div className={styles.overlay} />
       <div className={styles.textGroup}>
         <h4 className={styles.title}>Sed ut perspiciatis unde omnis</h4>
@@ -89,6 +88,7 @@ export default function SecondSection() {
             onClick={handleButtonClick}
           />
         </div>
+        {/* 유효성 검사 실패시 보여지는 부분 */}
         {isError && (
           <div className={styles.error}>Please enter a valid email!</div>
         )}

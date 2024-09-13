@@ -39,6 +39,7 @@ export default function FirstSection() {
         <div>never before</div>
       </header>
       <section className={styles.sectionContainer}>
+        {/* 임의의 순서로 배치 */}
         {shuffledSections.map((section, index) => (
           <div key={index} className={styles.group}>
             <div className={styles.infoGroup}>

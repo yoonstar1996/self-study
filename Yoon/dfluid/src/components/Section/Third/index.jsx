@@ -7,21 +7,26 @@ const continents = ["All", "Asia", "Europe", "America", "Oceania"];
 const years = [1000, 1300, 1700, 2000];
 
 export default function ThirdSection() {
+  // 대륙 필터 관련 상태
   const [selectedContinent, setSelectedContinent] = useState("All");
 
+  // 연도 필터 관련 상태
   const [startYear, setStartYear] = useState(null);
   const [endYear, setEndYear] = useState(null);
 
+  // 모달 관련 상태
   const [showModal, setShowModal] = useState(false);
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedImg, setSelectedImg] = useState("");
   const [selectedDesc, setSelectedDesc] = useState("");
 
+  // 대륙 선택 함수
   const handleContinentClick = (continent) => {
     setSelectedContinent(continent);
   };
 
+  // 연도 선택 함수
   const handleYearClick = (year) => {
     if (startYear === year && endYear === null) {
       setStartYear(null);
@@ -39,6 +44,7 @@ export default function ThirdSection() {
     }
   };
 
+  // 데이터 클릭 시 모달 창에 데이터 전달 함수
   const handleDataClick = (city, year, img, desc) => {
     setShowModal(true);
     setSelectedCity(city);
@@ -47,6 +53,7 @@ export default function ThirdSection() {
     setSelectedDesc(desc);
   };
 
+  // 대륙, 연도별 필터링 되는 데이터
   const filteredData = data
     .filter(
       (item) =>
@@ -64,6 +71,7 @@ export default function ThirdSection() {
       <div className={styles.title}>Duis tincidunt ut ligula vitae mollis.</div>
 
       <div className={styles.filterContainer}>
+        {/* 대륙 필터 부분 */}
         <div className={styles.continentFilter}>
           {continents.map((continent) => (
             <div
@@ -77,7 +85,7 @@ export default function ThirdSection() {
             </div>
           ))}
         </div>
-
+        {/* 연도 필터 부분 */}
         <div className={styles.yearFilter}>
           {years.map((year, index) => (
             <div key={year} className={styles.yearItem}>
@@ -93,7 +101,6 @@ export default function ThirdSection() {
               >
                 {year}
               </div>
-
               {index < years.length - 1 && (
                 <div
                   className={`${styles.bar} ${
@@ -107,7 +114,7 @@ export default function ThirdSection() {
           ))}
         </div>
       </div>
-
+      {/* 데이터 보여지는 부분 */}
       <div className={styles.dataGroup}>
         {filteredData.length > 0 ? (
           filteredData.map(({ city, year, img, desc }, index) => (
@@ -125,10 +132,10 @@ export default function ThirdSection() {
             </div>
           ))
         ) : (
-          <p>해당 조건에 맞는 데이터는 없습니다.</p>
+          <p>해당 조건에 맞는 데이터가 없습니다.</p>
         )}
       </div>
-
+      {/* 모달 부분 */}
       {showModal && (
         <div className={styles.modalContainer}>
           <div
