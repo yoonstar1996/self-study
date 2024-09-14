@@ -132,7 +132,7 @@ export default function ThirdSection() {
             </div>
           ))
         ) : (
-          <p>해당 조건에 맞는 데이터가 없습니다.</p>
+          <p className={styles.noData}>해당 조건에 맞는 데이터가 없습니다.</p>
         )}
       </div>
       {/* 모달 부분 */}
