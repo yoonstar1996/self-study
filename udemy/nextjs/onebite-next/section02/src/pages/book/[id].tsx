@@ -3,7 +3,6 @@ import style from "./[id].module.scss";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import fetchOneBook from "@/lib/fetch-one-book";
 import { useRouter } from "next/router";
-import { notFound } from "next/navigation";
 
 export const getStaticPaths = () => {
   return {
