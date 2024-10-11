@@ -1,6 +1,6 @@
-import ClientComponent from "./client-component";
+import ClientComponent from "../../components/client-component";
 import styles from "./page.module.scss";
-import ServerComponent from "./server-component";
+import ServerComponent from "../../components/server-component";
 
 export default function Home() {
   return (
