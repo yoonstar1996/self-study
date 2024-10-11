@@ -1,17 +1,18 @@
-import ClientComponent from "@/components/client-component";
-import React from "react";
+import books from "@/mock/books.json";
+import BookItem from "@/components/book-item";
 
 export default function Page({
   searchParams,
 }: {
-  searchParams: { q?: string };
+  searchParams: {
+    q?: string;
+  };
 }) {
   return (
     <div>
-      search page {searchParams.q}
-      <ClientComponent>
-        <></>
-      </ClientComponent>
+      {books.map((book) => (
+        <BookItem key={book.id} {...book} />
+      ))}
     </div>
   );
 }
