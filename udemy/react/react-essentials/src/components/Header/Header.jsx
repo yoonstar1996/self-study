@@ -1,7 +1,7 @@
-import reactImg from "../../assets/images/react-core-concepts.png";
-import "./Header.css";
+import reactImg from '../../assets/react-core-concepts.png';
+import './Header.css';
 
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
+const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
@@ -9,6 +9,7 @@ function genRandomInt(max) {
 
 export default function Header() {
   const description = reactDescriptions[genRandomInt(2)];
+
   return (
     <header>
       <img src={reactImg} alt="Stylized atom" />
