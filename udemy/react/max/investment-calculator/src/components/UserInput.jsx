@@ -1,28 +1,13 @@
 import React, { useState } from "react";
 
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
-
-  const handleChange = (inputIdentifier, newValue) => {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      };
-    });
-  };
-
+export default function UserInput({ userInput, handleChange }) {
   return (
     <section id="user-input">
       <div className="input-group">
         <p>
-          <label htmlFor="">Initial Investment</label>
+          <label htmlFor="initialInvestment">Initial Investment</label>
           <input
+            id="initialInvestment"
             type="number"
             required
             value={userInput.initialInvestment}
@@ -30,8 +15,9 @@ export default function UserInput() {
           />
         </p>
         <p>
-          <label htmlFor="">Annual Investment</label>
+          <label htmlFor="annualInvestment">Annual Investment</label>
           <input
+            id="annualInvestment"
             type="number"
             required
             value={userInput.annualInvestment}
@@ -41,8 +27,9 @@ export default function UserInput() {
       </div>
       <div className="input-group">
         <p>
-          <label htmlFor="">Expected Return</label>
+          <label htmlFor="expectedReturn">Expected Return</label>
           <input
+            id="expectedReturn"
             type="number"
             required
             value={userInput.expectedReturn}
@@ -50,8 +37,9 @@ export default function UserInput() {
           />
         </p>
         <p>
-          <label htmlFor="">Duration</label>
+          <label htmlFor="duration">Duration</label>
           <input
+            id="duration"
             type="number"
             required
             value={userInput.duration}
