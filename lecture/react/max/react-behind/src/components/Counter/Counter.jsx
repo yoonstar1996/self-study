@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 
 import IconButton from "../UI/IconButton.jsx";
 import MinusIcon from "../UI/Icons/MinusIcon.jsx";
@@ -31,6 +31,10 @@ export default function Counter({ initialCount }) {
     () => isPrime(initialCount),
     [initialCount]
   );
+
+  // useEffect(() => {
+  //   setCounterChanges([{ value: initialCount, id: Math.random() * 100 }]);
+  // }, [initialCount]);
 
   // const [counter, setCounter] = useState(initialCount);
   const [counterChanges, setCounterChanges] = useState([
