@@ -15,7 +15,13 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (emailIsInvalid || !enteredValues.email.includes("@")) {
+      return;
+    }
+
     console.log("enteredValues: ", enteredValues);
+
     setEnteredValues({
       email: "",
       password: "",
