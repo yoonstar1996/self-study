@@ -1,3 +1,3 @@
 # self-study
 
-self-study
+개인적으로 공부했던 것들을 모아놓은 저장소
