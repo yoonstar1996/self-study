@@ -3,11 +3,14 @@ import React from "react";
 function PropsNaming() {
   return (
     <ChildComponent
-      class="mt-0"
-      Clean="code"
-      clean_code="react"
-      otherComponent={OtherComponent}
-      isShow={true}
+      // class="mt-0"
+      className="mt-0"
+      // Clean="code"
+      clean="code"
+      // otherComponent={OtherComponent}
+      OtherComponent={OtherComponent}
+      // isShow={true}
+      isShow
     />
   );
 }
