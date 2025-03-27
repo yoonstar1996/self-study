@@ -1,0 +1,1 @@
+(()=>{var o={808:(o,r)=>{r.add=function(){return 7}}},r={};const e=function e(n){var t=r[n];if(void 0!==t)return t.exports;var s=r[n]={exports:{}};return o[n](s,s.exports,e),s.exports}(808);console.log("m1: ",e.add()),console.log("hello node.js")})();

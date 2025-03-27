@@ -1,13 +1,17 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="calc.js" defer></script>
-  </head>
-  <body id="app">
-    <section id="calc-app">
+Vue.createApp({
+  data() {
+    return {
+      x: 20,
+      y: 30,
+      result: 0,
+    };
+  },
+  methods: {
+    submitHandler() {
+      this.result = this.x + this.y;
+    },
+  },
+  template: ` <section id="calc-app">
       <h1>덧셈 계산기</h1>
       <form>
         <fieldset>
@@ -32,6 +36,5 @@
           </div>
         </fieldset>
       </form>
-    </section>
-  </body>
-</html>
+    </section>`,
+}).mount("#app");
