@@ -1,5 +1,6 @@
 "use client";
 
+import { createUser, deleteUser, fetchUsers, updateUser } from "@/lib/users";
 import { useEffect, useState } from "react";
 
 import { User } from "@/type/User";
@@ -12,9 +13,8 @@ export default function HomePage() {
   // 수정 중인 유저의 id
   const [editId, setEditId] = useState<number | null>(null);
 
-  const fetchUsers = async () => {
-    const res = await fetch("/api/users");
-    const data = await res.json();
+  const handleFetchUsers = async () => {
+    const data = await fetchUsers();
     setUsers(data);
   };
 
@@ -22,19 +22,9 @@ export default function HomePage() {
     if (!name || !email) return;
 
     if (editId !== null) {
-      // 수정
-      await fetch(`/api/users/${editId}`, {
-        method: "PUT",
-        body: JSON.stringify({ name, email }),
-        headers: { "Content-Type": "application/json" },
-      });
+      await updateUser(editId, name, email);
     } else {
-      // 추가
-      await fetch("/api/users", {
-        method: "POST",
-        body: JSON.stringify({ name, email }),
-        headers: { "Content-Type": "application/json" },
-      });
+      await createUser(name, email);
     }
 
     setName("");
@@ -49,13 +39,13 @@ export default function HomePage() {
     setEditId(user.id);
   };
 
-  const deleteUser = async (id: number) => {
-    await fetch(`/api/users/${id}`, { method: "DELETE" });
-    fetchUsers();
+  const handleDelete = async (id: number) => {
+    await deleteUser(id);
+    handleFetchUsers();
   };
 
   useEffect(() => {
-    fetchUsers();
+    handleFetchUsers();
   }, []);
 
   return (
@@ -96,16 +86,22 @@ export default function HomePage() {
       </div>
 
       <ul className="space-y-1">
-        {users.map((u: User) => (
-          <li key={u.id} className="flex justify-between border-b py-1">
+        {users.map((user: User) => (
+          <li key={user.id} className="flex justify-between border-b py-1">
             <span>
-              {u.name} ({u.email})
+              {user.name} ({user.email})
             </span>
             <div className="space-x-2">
-              <button onClick={() => handleEdit(u)} className="text-blue-500">
+              <button
+                onClick={() => handleEdit(user)}
+                className="text-blue-500"
+              >
                 수정
               </button>
-              <button onClick={() => deleteUser(u.id)} className="text-red-500">
+              <button
+                onClick={() => handleDelete(user.id)}
+                className="text-red-500"
+              >
                 삭제
               </button>
             </div>
