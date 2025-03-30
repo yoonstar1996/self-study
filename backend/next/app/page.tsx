@@ -11,11 +11,11 @@ export default function HomePage() {
   const [email, setEmail] = useState("");
 
   // 수정 중인 유저의 id
-  const [editId, setEditId] = useState<number | null>(null);
+  const [editId, setEditId] = useState<string | null>(null);
 
   const handleFetchUsers = async () => {
     const data = await fetchUsers();
-    setUsers(data);
+    setUsers(data.data.users);
   };
 
   const handleSubmit = async () => {
@@ -30,17 +30,17 @@ export default function HomePage() {
     setName("");
     setEmail("");
     setEditId(null);
-    fetchUsers();
+    handleFetchUsers();
   };
 
   const handleEdit = (user: User) => {
     setName(user.name);
     setEmail(user.email);
-    setEditId(user.id);
+    setEditId(user._id);
   };
 
-  const handleDelete = async (id: number) => {
-    await deleteUser(id);
+  const handleDelete = async (_id: string) => {
+    await deleteUser(_id);
     handleFetchUsers();
   };
 
@@ -87,7 +87,7 @@ export default function HomePage() {
 
       <ul className="space-y-1">
         {users.map((user: User) => (
-          <li key={user.id} className="flex justify-between border-b py-1">
+          <li key={user.name} className="flex justify-between border-b py-1">
             <span>
               {user.name} ({user.email})
             </span>
@@ -99,7 +99,7 @@ export default function HomePage() {
                 수정
               </button>
               <button
-                onClick={() => handleDelete(user.id)}
+                onClick={() => handleDelete(user._id)}
                 className="text-red-500"
               >
                 삭제

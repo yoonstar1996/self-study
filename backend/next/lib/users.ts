@@ -1,6 +1,6 @@
-import { User } from "@/type/User";
+import { UsersResponse } from "@/type/User";
 
-export const fetchUsers = async (): Promise<User[]> => {
+export const fetchUsers = async (): Promise<UsersResponse> => {
   const res = await fetch("/api/users");
   return res.json();
 };
@@ -13,14 +13,14 @@ export const createUser = async (name: string, email: string) => {
   });
 };
 
-export const updateUser = async (id: number, name: string, email: string) => {
-  await fetch(`/api/users/${id}`, {
+export const updateUser = async (_id: string, name: string, email: string) => {
+  await fetch(`/api/users/${_id}`, {
     method: "PUT",
     body: JSON.stringify({ name, email }),
     headers: { "Content-Type": "application/json" },
   });
 };
 
-export const deleteUser = async (id: number) => {
-  await fetch(`/api/users/${id}`, { method: "DELETE" });
+export const deleteUser = async (_id: string) => {
+  await fetch(`/api/users/${_id}`, { method: "DELETE" });
 };
