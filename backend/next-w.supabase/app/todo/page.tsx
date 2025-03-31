@@ -18,6 +18,8 @@ export default function Page() {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editContent, setEditContent] = useState("");
 
   // ✅ 로그아웃
   const handleLogout = async () => {
@@ -100,9 +102,91 @@ export default function Page() {
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="border px-4 py-2 rounded bg-white shadow"
+            className="border px-4 py-2 rounded bg-white shadow flex justify-between items-center gap-4"
           >
-            {todo.content}
+            <div className="flex items-center gap-2 flex-1">
+              <input
+                type="checkbox"
+                checked={todo.is_done}
+                onChange={async () => {
+                  const { error } = await supabase
+                    .from("todos")
+                    .update({ is_done: !todo.is_done })
+                    .eq("id", todo.id);
+                  if (!error) fetchTodos();
+                }}
+              />
+              {editingId === todo.id ? (
+                <input
+                  type="text"
+                  value={editContent}
+                  onChange={(e) => setEditContent(e.target.value)}
+                  className="border p-1 rounded w-full"
+                />
+              ) : (
+                <span
+                  className={todo.is_done ? "line-through text-gray-400" : ""}
+                >
+                  {todo.content}
+                </span>
+              )}
+            </div>
+
+            <div className="flex gap-2">
+              {editingId === todo.id ? (
+                <>
+                  <button
+                    className="text-green-600"
+                    onClick={async () => {
+                      if (editContent.trim() !== "") {
+                        const { error } = await supabase
+                          .from("todos")
+                          .update({ content: editContent })
+                          .eq("id", todo.id);
+                        if (!error) {
+                          setEditingId(null);
+                          fetchTodos();
+                        }
+                      }
+                    }}
+                  >
+                    저장
+                  </button>
+                  <button
+                    className="text-gray-500"
+                    onClick={() => {
+                      setEditingId(null);
+                      setEditContent("");
+                    }}
+                  >
+                    취소
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="text-blue-600"
+                  onClick={() => {
+                    setEditingId(todo.id);
+                    setEditContent(todo.content);
+                  }}
+                >
+                  수정
+                </button>
+              )}
+
+              <button
+                className="text-red-600"
+                onClick={async () => {
+                  const { error } = await supabase
+                    .from("todos")
+                    .delete()
+                    .eq("id", todo.id);
+                  if (!error) fetchTodos();
+                }}
+              >
+                삭제
+              </button>
+            </div>
           </li>
         ))}
       </ul>
