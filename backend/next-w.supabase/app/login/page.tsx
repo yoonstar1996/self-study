@@ -26,6 +26,24 @@ export default function LoginForm() {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: "http://localhost:3000/auth/callback",
+      },
+    });
+  };
+
+  const handleKakaoLogin = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "kakao",
+      options: {
+        redirectTo: "http://localhost:3000/auth/callback", // 로컬 테스트용
+      },
+    });
+  };
+
   return (
     <form onSubmit={handleLogin} className="flex flex-col gap-2 w-96 p-4">
       <input
@@ -44,6 +62,21 @@ export default function LoginForm() {
       />
       <button type="submit" className="bg-blue-600 text-white py-2 rounded">
         로그인
+      </button>
+
+      <button
+        type="button"
+        onClick={handleGoogleLogin}
+        className="bg-red-500 text-white py-2 rounded"
+      >
+        Google로 로그인
+      </button>
+
+      <button
+        onClick={handleKakaoLogin}
+        className="bg-yellow-400 text-black py-2 rounded"
+      >
+        Kakao로 로그인
       </button>
       {error && <p className="text-red-500">{error}</p>}
     </form>
