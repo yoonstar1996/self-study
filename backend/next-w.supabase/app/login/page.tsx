@@ -1,6 +1,7 @@
 "use client";
 
 import { supabase } from "@/lib/supabase";
+import { Provider } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -26,20 +27,11 @@ export default function LoginForm() {
     }
   };
 
-  const handleGoogleLogin = async () => {
+  const handleSocialLogin = async (provider: Provider) => {
     await supabase.auth.signInWithOAuth({
-      provider: "google",
+      provider,
       options: {
         redirectTo: "http://localhost:3000/auth/callback",
-      },
-    });
-  };
-
-  const handleKakaoLogin = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: "kakao",
-      options: {
-        redirectTo: "http://localhost:3000/auth/callback", // 로컬 테스트용
       },
     });
   };
@@ -66,14 +58,14 @@ export default function LoginForm() {
 
       <button
         type="button"
-        onClick={handleGoogleLogin}
+        onClick={() => handleSocialLogin("google")}
         className="bg-red-500 text-white py-2 rounded"
       >
         Google로 로그인
       </button>
 
       <button
-        onClick={handleKakaoLogin}
+        onClick={() => handleSocialLogin("kakao")}
         className="bg-yellow-400 text-black py-2 rounded"
       >
         Kakao로 로그인
