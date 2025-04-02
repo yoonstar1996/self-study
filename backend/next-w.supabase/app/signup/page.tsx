@@ -28,12 +28,14 @@ export default function SignUpForm() {
     }
 
     if (data.user) {
+      const provider = data.user.app_metadata?.provider || "email";
       // 추가 정보 users 테이블에 저장
       const { error: insertError } = await supabase.from("users").insert({
         user_id: data.user.id,
         email: email,
         name,
         phone_number: phone,
+        provider,
       });
 
       if (insertError) {

@@ -21,13 +21,13 @@ export default function Page() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editContent, setEditContent] = useState("");
 
-  // ✅ 로그아웃
+  // 로그아웃
   const handleLogout = async () => {
     await supabase.auth.signOut();
     router.push("/");
   };
 
-  // ✅ To-do 불러오기 (Read)
+  // To-do 불러오기 (Read)
   const fetchTodos = async () => {
     const {
       data: { user },
@@ -48,7 +48,7 @@ export default function Page() {
     else setTodos(data);
   };
 
-  // ✅ To-do 등록 (Create)
+  // To-do 등록 (Create)
   const handleAddTodo = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!content.trim()) return;
