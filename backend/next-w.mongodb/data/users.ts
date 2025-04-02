@@ -1,3 +1,3 @@
-import { User } from "@/type/User";
+import { User } from "@/types/User";
 
 export const users: User[] = [];

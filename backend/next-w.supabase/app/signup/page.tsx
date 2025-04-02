@@ -16,21 +16,32 @@ export default function SignUpForm() {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
-      options: {
-        data: {
-          name,
-          phone,
-        },
-      },
     });
 
-    if (error) {
-      setError(error.message);
+    if (signUpError) {
+      setError(signUpError.message);
       setSuccess(false);
-    } else {
+      return;
+    }
+
+    if (data.user) {
+      // 추가 정보 users 테이블에 저장
+      const { error: insertError } = await supabase.from("users").insert({
+        user_id: data.user.id,
+        email: email,
+        name,
+        phone_number: phone,
+      });
+
+      if (insertError) {
+        setError(insertError.message);
+        setSuccess(false);
+        return;
+      }
+
       setError(null);
       setSuccess(true);
       router.push("/login");

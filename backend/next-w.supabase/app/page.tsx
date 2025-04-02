@@ -135,12 +135,20 @@ export default function Page() {
               </button>
             </>
           ) : (
-            <button
-              onClick={() => router.push("/login")}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              로그인
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={() => router.push("/signup")}
+                className="bg-fuchsia-500 text-white px-4 py-2 rounded"
+              >
+                회원가입
+              </button>
+              <button
+                onClick={() => router.push("/login")}
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                로그인
+              </button>
+            </div>
           )}
         </div>
       </div>

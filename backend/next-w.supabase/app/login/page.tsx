@@ -1,6 +1,7 @@
 "use client";
 
 import { supabase } from "@/lib/supabase";
+import { Provider } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -26,6 +27,15 @@ export default function LoginForm() {
     }
   };
 
+  const handleSocialLogin = async (provider: Provider) => {
+    await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: "http://localhost:3000/auth/callback",
+      },
+    });
+  };
+
   return (
     <form onSubmit={handleLogin} className="flex flex-col gap-2 w-96 p-4">
       <input
@@ -44,6 +54,21 @@ export default function LoginForm() {
       />
       <button type="submit" className="bg-blue-600 text-white py-2 rounded">
         로그인
+      </button>
+
+      <button
+        type="button"
+        onClick={() => handleSocialLogin("google")}
+        className="bg-red-500 text-white py-2 rounded"
+      >
+        Google로 로그인
+      </button>
+
+      <button
+        onClick={() => handleSocialLogin("kakao")}
+        className="bg-yellow-400 text-black py-2 rounded"
+      >
+        Kakao로 로그인
       </button>
       {error && <p className="text-red-500">{error}</p>}
     </form>
