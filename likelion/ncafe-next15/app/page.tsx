@@ -1,5 +1,9 @@
-"use client";
+import { createClient } from "@/utils/supabase/server";
 
-export default function page() {
-  return <div>홈페이지에 오신것을 환영합니다.</div>;
+export default async function Instruments() {
+  const supabase = await createClient();
+  const { data: menu } = await supabase.from("menu").select();
+  console.log("menu: ", menu);
+
+  return <pre>{JSON.stringify(menu, null, 2)}</pre>;
 }

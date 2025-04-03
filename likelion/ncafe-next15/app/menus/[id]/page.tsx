@@ -6,12 +6,21 @@ type MenuPageParams = {
   };
 };
 
+type Menu = {
+  id: string;
+  korName: string;
+};
+
+type MenuData = {
+  menus: Menu[];
+};
+
 export default async function MenuDetailPage({
   params,
 }: MenuPageParams): Promise<JSX.Element> {
   const { id } = await params;
 
-  const fetchMenuData = async () => {
+  const fetchMenuData = async (): Promise<MenuData> => {
     const response = await fetch(
       "https://next15-ts-ssr.new-cafe.com/api/menus",
       {
