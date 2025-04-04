@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import styles from "./RootHeader.module.scss";
+
+const { header } = styles;
 
 export default function RootHeader() {
   return (
-    <header>
+    <header className={header}>
       <h1>Root Header</h1>
       <nav>
         <ul>
