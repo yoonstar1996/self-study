@@ -1,66 +1,45 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { supabase } from "@/lib/supabase";
+import jwt from "jsonwebtoken";
+
+const JWT_SECRET = process.env.JWT_SECRET!;
 
 export async function POST(req: NextRequest) {
-  const { email, code } = await req.json();
+  const { code } = await req.json();
+  const auth = req.headers.get("authorization");
+  const token = auth?.replace("Bearer ", "");
 
-  if (!email || !code) {
+  if (!token || !code) {
     return NextResponse.json(
-      { success: false, message: "이메일과 코드가 필요합니다." },
+      { success: false, message: "토큰과 인증 코드가 필요합니다." },
       { status: 400 }
     );
   }
 
-  const { data, error } = await supabase
-    .from("email_verifications")
-    .select("*")
-    .eq("email", email)
-    .single();
+  try {
+    const payload = jwt.verify(token, JWT_SECRET) as {
+      email: string;
+      code: string;
+    };
 
-  if (error || !data) {
-    return NextResponse.json(
-      { success: false, message: "인증 정보가 없습니다." },
-      { status: 400 }
-    );
-  }
+    if (payload.code !== code) {
+      return NextResponse.json(
+        { success: false, message: "인증 코드가 일치하지 않습니다." },
+        { status: 401 }
+      );
+    }
 
-  if (data.verified) {
-    return NextResponse.json({
-      success: true,
-      message: "이미 인증된 이메일입니다.",
+    // 인증 성공 시 이메일만 담긴 새 토큰 재발급 (회원가입용)
+    const verifiedToken = jwt.sign({ email: payload.email }, JWT_SECRET, {
+      expiresIn: "15m",
     });
-  }
 
-  const now = new Date();
-  const expires = new Date(data.expires_at);
-
-  if (data.code !== code) {
+    return NextResponse.json({ success: true, token: verifiedToken });
+  } catch (err) {
+    console.error("JWT 인증 오류:", err);
     return NextResponse.json(
-      { success: false, message: "인증 코드가 일치하지 않습니다." },
+      { success: false, message: "토큰이 유효하지 않거나 만료되었습니다." },
       { status: 401 }
     );
   }
-
-  if (now > expires) {
-    return NextResponse.json(
-      { success: false, message: "인증 코드가 만료되었습니다." },
-      { status: 410 }
-    );
-  }
-
-  // 인증 성공 → verified 업데이트
-  const { error: updateError } = await supabase
-    .from("email_verifications")
-    .update({ verified: true })
-    .eq("email", email);
-
-  if (updateError) {
-    return NextResponse.json(
-      { success: false, message: "인증 상태 업데이트 실패" },
-      { status: 500 }
-    );
-  }
-
-  return NextResponse.json({ success: true, message: "이메일 인증 성공" });
 }

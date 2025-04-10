@@ -3,31 +3,12 @@
 import "./globals.css";
 
 import Link from "next/link";
-import { useAuthStore } from "@/store/authStore";
-import { useEffect } from "react";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { setToken, setUser } = useAuthStore();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setToken(token);
-
-      fetch("/api/auth/me", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-        .then((res) => res.json())
-        .then((user) => {
-          setUser(user);
-        });
-    }
-  }, []);
-
   return (
     <html lang="en">
       <body>

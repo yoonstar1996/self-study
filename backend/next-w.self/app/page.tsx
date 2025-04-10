@@ -1,28 +1,59 @@
 "use client";
 
-import { useAuthStore } from "@/store/authStore";
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  const { user, logout } = useAuthStore();
-  console.log("user: ", user);
+  const [user, setUser] = useState<null | {
+    id: string;
+    email: string;
+    nickname?: string;
+  }>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch("/api/auth/me", {
+          credentials: "include",
+        });
+
+        if (!res.ok) {
+          // 로그인 안 한 경우: 조용히 넘어감
+          setUser(null);
+          return;
+        }
+
+        const userData = await res.json();
+        console.log("userData: ", userData);
+        setUser(userData);
+      } catch (err) {
+        // 네트워크 오류나 예외 상황만 로그 출력
+        console.error("유저 정보 불러오기 실패:", err);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const logout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    setUser(null);
+  };
+
   return (
-    <div>
+    <div className="p-6">
       <h1 className="text-2xl font-bold">Users</h1>
-      {user && (
-        <>
-          <span className="ml-4 text-sm text-gray-600">
-            {user.nickname || user.email} 님
-          </span>
+      {user ? (
+        <div className="mt-4 text-gray-700">
+          <p>👤 {user.nickname || user.email}</p>
           <button
-            className="text-red-500 text-sm underline"
-            onClick={() => {
-              logout();
-              window.location.href = "/";
-            }}
+            onClick={logout}
+            className="text-sm text-red-500 underline ml-2"
           >
             로그아웃
           </button>
-        </>
+        </div>
+      ) : (
+        <p className="text-sm text-gray-400 mt-2">로그인 필요</p>
       )}
     </div>
   );

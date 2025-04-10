@@ -4,27 +4,28 @@ import { supabase } from "@/lib/supabase";
 import { verifyToken } from "@/lib/jwt";
 
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader) {
-    return NextResponse.json({ message: "토큰 없음" }, { status: 401 });
+  const token = req.cookies.get("token")?.value;
+
+  if (!token) {
+    return NextResponse.json({ error: "토큰 없음" }, { status: 401 });
   }
 
-  const token = authHeader.split(" ")[1];
-  const decoded = verifyToken(token);
+  try {
+    const payload = verifyToken(token); // id, email 등 추출
+    const { id } = payload as { id: string };
 
-  if (!decoded || typeof decoded !== "object" || !("id" in decoded)) {
-    return NextResponse.json({ message: "토큰 검증 실패" }, { status: 401 });
+    const { data: user, error } = await supabase
+      .from("users")
+      .select("id, email, nickname, phone, provider")
+      .eq("id", id)
+      .single();
+
+    if (error || !user) {
+      return NextResponse.json({ error: "유저 없음" }, { status: 404 });
+    }
+
+    return NextResponse.json(user);
+  } catch {
+    return NextResponse.json({ error: "토큰 오류" }, { status: 401 });
   }
-
-  const { data: user, error } = await supabase
-    .from("users")
-    .select("id, email, nickname, profile_image_url")
-    .eq("id", decoded.id)
-    .single();
-
-  if (error || !user) {
-    return NextResponse.json({ message: "유저 정보 없음" }, { status: 404 });
-  }
-
-  return NextResponse.json(user);
 }

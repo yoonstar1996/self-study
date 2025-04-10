@@ -37,5 +37,16 @@ export async function POST(req: NextRequest) {
 
   const token = signToken({ id: user.id, email: user.email });
 
-  return NextResponse.json({ success: true, token });
+  const response = NextResponse.json({ success: true });
+
+  // 서버에서 쿠키로 토큰 설정 (HttpOnly 권장)
+  response.cookies.set("token", token, {
+    httpOnly: true,
+    maxAge: 60 * 60 * 24, // 1일
+    path: "/",
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+  });
+
+  return response;
 }
