@@ -1,12 +1,10 @@
 "use client";
 
-import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { setToken, setUser } = useAuthStore();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,18 +23,6 @@ export default function LoginPage() {
       setStatus(result.message || "로그인 실패");
       return;
     }
-
-    const token = result.token;
-    setToken(token);
-    localStorage.setItem("token", token);
-
-    // 유저 정보 불러오기
-    const me = await fetch("/api/auth/me", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    localStorage.setItem("token", token);
-    const user = await me.json();
-    setUser(user);
 
     setStatus("로그인 성공!");
     router.push("/");
