@@ -1,5 +1,3 @@
-console.log("test");
+import { PrismaClient } from "@prisma/client";
 
-const x: number = 2;
-
-console.log(x);
+const prisma = new PrismaClient();
