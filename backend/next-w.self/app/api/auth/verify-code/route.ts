@@ -5,40 +5,39 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET!;
 
 export async function POST(req: NextRequest) {
-  const { code } = await req.json();
-  const auth = req.headers.get("authorization");
-  const token = auth?.replace("Bearer ", "");
+  const authHeader = req.headers.get("authorization");
+  const code = (await req.json()).code;
 
-  if (!token || !code) {
+  if (!authHeader) {
     return NextResponse.json(
-      { success: false, message: "토큰과 인증 코드가 필요합니다." },
-      { status: 400 }
+      { success: false, message: "토큰 없음" },
+      { status: 401 }
     );
   }
 
   try {
-    const payload = jwt.verify(token, JWT_SECRET) as {
+    const token = authHeader.replace("Bearer ", "");
+    const decoded = jwt.verify(token, JWT_SECRET) as {
       email: string;
       code: string;
     };
 
-    if (payload.code !== code) {
+    if (decoded.code !== code) {
       return NextResponse.json(
-        { success: false, message: "인증 코드가 일치하지 않습니다." },
+        { success: false, message: "코드 불일치" },
         { status: 401 }
       );
     }
 
-    // 인증 성공 시 이메일만 담긴 새 토큰 재발급 (회원가입용)
-    const verifiedToken = jwt.sign({ email: payload.email }, JWT_SECRET, {
+    // 검증 성공 → 새 토큰 발급 (email만 포함)
+    const verifiedToken = jwt.sign({ email: decoded.email }, JWT_SECRET, {
       expiresIn: "15m",
     });
 
     return NextResponse.json({ success: true, token: verifiedToken });
-  } catch (err) {
-    console.error("JWT 인증 오류:", err);
+  } catch {
     return NextResponse.json(
-      { success: false, message: "토큰이 유효하지 않거나 만료되었습니다." },
+      { success: false, message: "토큰 오류" },
       { status: 401 }
     );
   }

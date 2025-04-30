@@ -1,0 +1,103 @@
+// generator client {
+//   provider = "prisma-client-js"
+//   output   = "../generated/prisma"
+// }
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+// model Category {
+//   id            Int      @id @default(autoincrement())
+//   name1         String
+//   reg_member_id String
+//   created_at    DateTime @default(now())
+//   members       members  @relation(fields: [reg_member_id], references: [id])
+//   menus         menus[]
+
+//   @@map("categories")
+// }
+
+// model member_roles {
+//   member_id  String
+//   role_id    Int
+//   created_at DateTime @default(now())
+//   members    members  @relation(fields: [member_id], references: [id])
+//   roles      roles    @relation(fields: [role_id], references: [id])
+
+//   @@id([member_id, role_id])
+// }
+
+// model members {
+//   id            String         @id
+//   email         String         @unique
+//   username      String         @unique
+//   phone         String?
+//   created_at    DateTime       @default(now())
+//   updated_at    DateTime
+//   deleted_at    DateTime?
+//   password      String
+//   profile_image String?
+//   categories    Category[]
+//   member_roles  member_roles[]
+//   menu_likes    menu_likes[]
+//   menus         menus[]
+// }
+
+// model menu_images {
+//   id         Int     @id @default(autoincrement())
+//   src        String
+//   menu_id    Int
+//   is_default Boolean @default(false)
+//   menus      menus   @relation(fields: [menu_id], references: [id])
+// }
+
+// model menu_likes {
+//   member_id  String
+//   menu_id    Int
+//   created_at DateTime @default(now())
+//   members    members  @relation(fields: [member_id], references: [id])
+//   menus      menus    @relation(fields: [menu_id], references: [id])
+
+//   @@id([member_id, menu_id])
+// }
+
+// model menus {
+//   id            Int           @id @default(autoincrement())
+//   kor_name      String
+//   eng_name      String
+//   price         Float
+//   description   String?
+//   createdAt     DateTime      @default(now())
+//   category_id   Int
+//   reg_member_id String
+//   deleted_at    DateTime?
+//   updated_at    DateTime?
+//   menu_images   menu_images[]
+//   menu_likes    menu_likes[]
+//   categories    Category      @relation(fields: [category_id], references: [id])
+//   members       members       @relation(fields: [reg_member_id], references: [id])
+// }
+
+// model roles {
+//   id           Int            @id @default(autoincrement())
+//   name         String
+//   created_at   DateTime       @default(now())
+//   member_roles member_roles[]
+// }
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+}
