@@ -7,7 +7,7 @@ export const createSupabaseWithToken = (token: string) =>
   createClient(supabaseUrl, supabaseAnonKey, {
     global: {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`, // 🔐 요청 헤더에 JWT 토큰 포함
       },
     },
   });

@@ -1,63 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import jwt from "jsonwebtoken";
 import { sendVerificationEmail } from "@/lib/mailer";
-import { supabase } from "@/lib/supabase";
+
+const JWT_SECRET = process.env.JWT_SECRET!;
 
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
 
   if (!email) {
     return NextResponse.json(
-      { success: false, message: "이메일이 없습니다." },
+      { success: false, message: "이메일이 필요합니다." },
       { status: 400 }
     );
   }
 
-  // 6자리 랜덤 숫자
+  // 인증 코드 생성
   const code = Math.floor(100000 + Math.random() * 900000).toString();
 
-  // 유효 시간: 현재 시점 + 5분
-  const expiresAt = new Date(Date.now() + 5 * 60 * 1000).toISOString();
+  // 토큰 생성 (5분 유효)
+  const token = jwt.sign({ email, code }, JWT_SECRET, { expiresIn: "5m" });
 
-  // Supabase에 저장 (upsert)
-  const { error } = await supabase.from("email_verifications").upsert(
-    {
-      email,
-      code,
-      expires_at: expiresAt,
-      verified: false,
-    },
-    { onConflict: "email" }
-  );
-
-  if (error) {
-    console.error("DB 저장 실패:", error.message);
-    return NextResponse.json(
-      { success: false, message: error.message },
-      { status: 500 }
-    );
-  }
-
-  // 이메일 전송
+  // 메일 발송
   try {
-    // 인증 코드 보내기 전에 추가
-    const { data: existingUser } = await supabase
-      .from("users")
-      .select("id")
-      .eq("email", email)
-      .maybeSingle();
-
-    if (existingUser) {
-      return NextResponse.json(
-        { success: false, message: "이미 가입된 이메일입니다." },
-        { status: 400 }
-      );
-    } else {
-      await sendVerificationEmail(email, code);
-      return NextResponse.json({ success: true });
-    }
-  } catch (err) {
-    console.error("메일 전송 실패:", err);
+    await sendVerificationEmail(email, code);
+    return NextResponse.json({ success: true, token });
+  } catch (error) {
+    console.error("메일 전송 실패:", error);
     return NextResponse.json(
       { success: false, message: "메일 전송 실패" },
       { status: 500 }
