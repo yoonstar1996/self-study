@@ -5,28 +5,28 @@ import prisma from "@/lib/prisma";
 
 export class PrismaPostRepo implements PostRepo {
   async getPost(): Promise<Post[] | null> {
-    const records = await prisma.post.findMany({
+    const posts = await prisma.post.findMany({
       include: {
         author: true,
       },
     });
 
-    if (records.length === 0) return null;
+    if (posts.length === 0) return null;
 
-    return records;
+    return posts;
   }
 
   async getPostById(id: number): Promise<Post | null> {
-    const record = await prisma.post.findUnique({
+    const post = await prisma.post.findUnique({
       where: { id },
       include: {
         author: true,
       },
     });
 
-    if (!record) return null;
+    if (!post) return null;
 
-    return record;
+    return post;
   }
 
   async create(data: {
@@ -34,23 +34,23 @@ export class PrismaPostRepo implements PostRepo {
     content: string;
     authorId: number;
   }): Promise<Post | null> {
-    const record = await prisma.post.create({
+    const post = await prisma.post.create({
       data,
       include: { author: true },
     });
 
     const authorEntity = new User(
-      record.author.id,
-      record.author.email,
-      record.author.name
+      post.author.id,
+      post.author.email,
+      post.author.name
     );
 
     return new Post(
-      record.id,
-      record.title,
-      record.content,
-      record.published,
-      record.authorId,
+      post.id,
+      post.title,
+      post.content,
+      post.published,
+      post.authorId,
       authorEntity
     );
   }

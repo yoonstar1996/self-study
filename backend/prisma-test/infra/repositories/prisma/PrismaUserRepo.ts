@@ -4,10 +4,10 @@ import prisma from "@/lib/prisma";
 
 export class PrismaUserRepo implements UserRepo {
   async getUser(): Promise<User[] | null> {
-    const records = await prisma.user.findMany({ include: { posts: true } });
+    const users = await prisma.user.findMany({ include: { posts: true } });
 
-    if (!records) return null;
+    if (!users) return null;
 
-    return records.map((r) => new User(r.id, r.email, r.name || ""));
+    return users.map((r) => new User(r.id, r.email, r.name || ""));
   }
 }
