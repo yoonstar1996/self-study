@@ -1,22 +1,21 @@
-import prisma from "@/lib/prisma";
-import { notFound } from "next/navigation";
+import { Post } from "@/domain/entities/Post";
 
-export default async function Post({
+export default async function PostPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const post = await prisma.post.findUnique({
-    where: { id: parseInt(id) },
-    include: {
-      author: true,
-    },
-  });
 
-  if (!post) {
-    notFound();
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/posts/${id}`
+  );
+
+  if (!res.ok) {
+    return <div>잘못된 접근입니다.</div>;
   }
+
+  const post = (await res.json()) as Post;
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16">

@@ -1,9 +1,11 @@
-import prisma from "@/lib/prisma";
+import { User } from "@/domain/entities/User";
 
 export default async function Home() {
-  const users = await prisma.user.findMany();
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/users`
+  );
+  const users = (await res.json()) as User[];
 
-  console.log("users: ", users);
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center -mt-16">
       <h1 className="text-4xl font-bold mb-8 font-[family-name:var(--font-geist-sans)] text-[#333333]">
