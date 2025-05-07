@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>알랜드의 메뉴목록 입니다.</title>
+    <link
+      rel="stylesheet"
+      crossorigin="anonymous"
+      as="style"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="https://cdn.jsdelivr.net/npm/newtil-css@0.2.13/dist/style.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/header.css" type="text/css" />
+    <link rel="stylesheet" href="/css/footer.css" type="text/css" />
+    <link rel="stylesheet" href="/css/menu/detail/style.css" type="text/css" />
+  </head>
+  <body>
+    <div>
+      <div>
+        <header class="header">
+          <h1>
+            <a href="/">Rland</a>
+          </h1>
+          <div class="top-mobile-menu">
+            <a class="n-icon n-icon:list n-icon-color:base-1" href="top-menu=1"
+              >숨김버튼</a
+            >
+          </div>
+          <div class="top-menu">
+            <nav>
+              <h1 class="d:none">상단메뉴</h1>
+              <ul>
+                <li>
+                  <a class="n-icon n-icon:home n-icon-color:base-1" href="/"
+                    >홈</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="n-icon n-icon:dashboard n-icon-color:base-1"
+                    href="/admin/index.html"
+                    >대시보드</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/signin.html"
+                    class="n-icon n-icon:login n-icon-color:base-1"
+                    >로그인</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <!-- <section>
+                          <h1 class="d:none">로그아웃 폼</h1>
+                          <form>
+                              <input type="hidden">
+                              <button class="n-icon n-icon:sign_out n-icon-color:base-1">로그아웃</button>
+                          </form>
+                      </section> -->
+          </div>
+        </header>
+      </div>
+
+      <main>
+        <section class="menu-detail">
+          <div class="menu-img-box">
+            <img src="/image/product/cafe_latte.svg" alt="카페라떼" />
+          </div>
+          <form class="menu-order-form">
+            <div class="menu-info">
+              <h1>카페라떼</h1>
+              <h2>Caffe Latte</h2>
+              <p>
+                카페라떼는 에스프레소에 스팀밀크를 넣은 음료로, 에스프레소의
+                쓴맛과 스팀밀크의 부드러움이 어우러져 부드러운 맛을 느낄 수
+                있습니다.
+              </p>
+            </div>
+            <fieldset class="radio-group size-options">
+              <legend>사이즈</legend>
+              <div>
+                <label>
+                  <input type="radio" name="size" value="small" checked />
+                  Small
+                </label>
+                <label>
+                  <input type="radio" name="size" value="large" />
+                  Large
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="radio-group temp-options">
+              <legend>온도</legend>
+              <div>
+                <label>
+                  <input type="radio" name="temp" value="hot" checked />
+                  Hot
+                </label>
+                <label>
+                  <input type="radio" name="temp" value="ice" />
+                  Ice
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="amount-option">
+              <legend>수량</legend>
+              <div>
+                <button
+                  class="n-icon n-icon:remove n-btn n-btn:rounded n-btn-size:small"
+                >
+                  감소
+                </button>
+                <label>
+                  <span class="d:none">수량</span>
+                  <input type="text" name="amount" value="1" />
+                </label>
+                <button
+                  class="n-icon n-icon:add n-btn n-btn:rounded n-btn-size:small"
+                >
+                  증가
+                </button>
+              </div>
+              <div>45,000 원</div>
+            </fieldset>
+
+            <div class="like-box">
+              <label class="n-icon n-icon:favorite n-icon-size:8">
+                좋아요
+                <input class="d:none" type="checkbox" value="1" />
+              </label>
+              <span>12</span>
+            </div>
+
+            <div class="btn-list">
+              <button class="n-btn">담기</button>
+              <button class="n-btn n-btn-color:main">주문하기</button>
+            </div>
+
+            <div class="btn-back">
+              <a
+                class="n-icon n-icon:arrow_back n-btn n-btn:rounded n-btn-size:small"
+                href="list.html"
+                >목록</a
+              >
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <!-- ================ rcmd-menu ======================== -->
+
+      <div class="menus-box rcmd-menu-box">
+        <section class="menus">
+          <h1 class="">함께 추천 드리는 메뉴</h1>
+          <div class="list">
+            <section class="menu-card">
+              <div class="img-box">
+                <a href="detail.html?id=1"
+                  ><img
+                    src="/image/product/americano.png"
+                    alt="아메리카노 이미지"
+                /></a>
+              </div>
+              <div class="menu-info">
+                <h1>
+                  <a href="detail.html?id=1">아메리카노</a>
+                </h1>
+                <h2>americano</h2>
+                <div class="price">4,000 원</div>
+                <div class="like">
+                  <label class="n-icon n-icon:favorite">
+                    좋아요
+                    <input class="d:none" type="checkbox" value="1" checked />
+                  </label>
+                  <span>12</span>
+                </div>
+                <div class="pay">
+                  <button
+                    class="n-icon n-icon:shopping_cart n-btn n-btn:rounded n-btn-color:main"
+                  >
+                    장바구니에 담기
+                  </button>
+                  <button
+                    class="n-icon n-icon:credit_card n-btn n-btn:rounded n-btn-color:sub"
+                  >
+                    주문하기
+                  </button>
+                </div>
+              </div>
+            </section>
+            <!-- -------------------------------------- -->
+
+            <section class="menu-card">
+              <div class="img-box">
+                <a href="detail.html?id=1"
+                  ><img
+                    src="/image/product/cafe_latte.svg"
+                    alt="카페라떼 이미지"
+                /></a>
+              </div>
+              <div class="menu-info">
+                <h1>
+                  <a href="detail.html?id=1">카페라떼</a>
+                </h1>
+                <h2>Cafe Latte</h2>
+                <div class="price">4,500 원</div>
+                <div class="like">
+                  <label class="n-icon n-icon:favorite">
+                    좋아요
+                    <input class="d:none" type="checkbox" value="1" />
+                  </label>
+                  <span>12</span>
+                </div>
+                <div class="pay">
+                  <button
+                    class="n-icon n-icon:shopping_cart n-btn n-btn:rounded n-btn-color:main"
+                  >
+                    장바구니에 담기
+                  </button>
+                  <button
+                    class="n-icon n-icon:credit_card n-btn n-btn:rounded n-btn-color:sub"
+                  >
+                    주문하기
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+      <!-- ================ basket ======================== -->
+      <div class="basket-box">
+        <section class="basket">
+          <h1>장바구니</h1>
+          <div>
+            <div>금액 : 12,000 원</div>
+            <div>
+              <span class="price d:none">수량</span
+              ><span class="amount">7</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================ footer ======================== -->
+
+      <div class="footer-box">
+        <footer class="footer">
+          <h1>
+            <a href="">홈페이지 이용약관</a>
+          </h1>
+          <dl>
+            <div>
+              <dt>사업자 등록번호</dt>
+              <dd>123-45-6789</dd>
+            </div>
+            <div>
+              <dt>저작권</dt>
+              <dd>Ⓒ 2023 Newlecture All Rights Reserved</dd>
+            </div>
+          </dl>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
