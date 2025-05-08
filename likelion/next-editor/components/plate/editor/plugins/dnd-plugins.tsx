@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import { DndPlugin } from '@udecode/plate-dnd';
-import { PlaceholderPlugin } from '@udecode/plate-media/react';
-import { NodeIdPlugin } from '@udecode/plate-node-id';
-
-import { DraggableAboveNodes } from '@/components/plate-ui/draggable';
+import { DraggableAboveNodes } from "@/components/plate/plate-ui/draggable";
+import { DndPlugin } from "@udecode/plate-dnd";
+import { PlaceholderPlugin } from "@udecode/plate-media/react";
+import { NodeIdPlugin } from "@udecode/plate-node-id";
 
 export const dndPlugins = [
   NodeIdPlugin,

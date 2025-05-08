@@ -1,19 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { streamInsertChunk, withAIBatch } from "@udecode/plate-ai";
+import { AIChatPlugin, AIPlugin, useChatChunk } from "@udecode/plate-ai/react";
 
-import type { AIChatPluginConfig } from '@udecode/plate-ai/react';
-
-import { PathApi } from '@udecode/plate';
-import { streamInsertChunk, withAIBatch } from '@udecode/plate-ai';
-import { AIChatPlugin, AIPlugin, useChatChunk } from '@udecode/plate-ai/react';
-import { usePluginOption } from '@udecode/plate/react';
-
-import { markdownPlugin } from '@/components/editor/plugins/markdown-plugin';
-import { AILoadingBar } from '@/components/plate-ui/ai-loading-bar';
-import { AIMenu } from '@/components/plate-ui/ai-menu';
-
-import { cursorOverlayPlugin } from './cursor-overlay-plugin';
+import { markdownPlugin } from "@/components/plate/editor/plugins/markdown-plugin";
+import { AILoadingBar } from "@/components/plate/plate-ui/ai-loading-bar";
+import { AIMenu } from "@/components/plate/plate-ui/ai-menu";
+import { PathApi } from "@udecode/plate";
+import type { AIChatPluginConfig } from "@udecode/plate-ai/react";
+import { usePluginOption } from "@udecode/plate/react";
+import { cursorOverlayPlugin } from "./cursor-overlay-plugin";
 
 const systemCommon = `\
 You are an advanced AI-powered note-taking assistant, designed to enhance productivity and creativity in note management.
@@ -105,15 +101,15 @@ export const aiPlugins = [
         return isBlockSelecting
           ? PROMPT_TEMPLATES.userBlockSelecting
           : isSelecting
-            ? PROMPT_TEMPLATES.userSelecting
-            : PROMPT_TEMPLATES.userDefault;
+          ? PROMPT_TEMPLATES.userSelecting
+          : PROMPT_TEMPLATES.userDefault;
       },
       systemTemplate: ({ isBlockSelecting, isSelecting }) => {
         return isBlockSelecting
           ? PROMPT_TEMPLATES.systemBlockSelecting
           : isSelecting
-            ? PROMPT_TEMPLATES.systemSelecting
-            : PROMPT_TEMPLATES.systemDefault;
+          ? PROMPT_TEMPLATES.systemSelecting
+          : PROMPT_TEMPLATES.systemDefault;
       },
     },
     render: {
@@ -123,17 +119,17 @@ export const aiPlugins = [
   }).extend({
     useHooks: ({ editor, getOption, setOption }) => {
       const mode = usePluginOption(
-        { key: 'aiChat' } as AIChatPluginConfig,
-        'mode'
+        { key: "aiChat" } as AIChatPluginConfig,
+        "mode"
       );
 
       useChatChunk({
         onChunk: ({ chunk, isFirst, nodes, text }) => {
-          if (isFirst && mode == 'insert') {
+          if (isFirst && mode == "insert") {
             editor.tf.withoutSaving(() => {
               editor.tf.insertNodes(
                 {
-                  children: [{ text: '' }],
+                  children: [{ text: "" }],
                   type: AIChatPlugin.key,
                 },
                 {
@@ -141,14 +137,14 @@ export const aiPlugins = [
                 }
               );
             });
-            editor.setOption(AIChatPlugin, 'streaming', true);
+            editor.setOption(AIChatPlugin, "streaming", true);
           }
 
-          if (mode === 'insert' && nodes.length > 0) {
+          if (mode === "insert" && nodes.length > 0) {
             withAIBatch(
               editor,
               () => {
-                if (!getOption('streaming')) return;
+                if (!getOption("streaming")) return;
                 editor.tf.withScrolling(() => {
                   streamInsertChunk(editor, chunk, {
                     textProps: {
@@ -162,9 +158,9 @@ export const aiPlugins = [
           }
         },
         onFinish: ({ content }) => {
-          editor.setOption(AIChatPlugin, 'streaming', false);
-          editor.setOption(AIChatPlugin, '_blockChunks', '');
-          editor.setOption(AIChatPlugin, '_blockPath', null);
+          editor.setOption(AIChatPlugin, "streaming", false);
+          editor.setOption(AIChatPlugin, "_blockChunks", "");
+          editor.setOption(AIChatPlugin, "_blockPath", null);
         },
       });
     },

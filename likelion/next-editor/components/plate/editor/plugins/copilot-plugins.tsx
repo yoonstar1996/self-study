@@ -1,21 +1,19 @@
-'use client';
+"use client";
 
-import type { TElement } from '@udecode/plate';
+import { serializeMd, stripMarkdown } from "@udecode/plate-markdown";
 
-import { faker } from '@faker-js/faker';
-import { CopilotPlugin } from '@udecode/plate-ai/react';
-import { serializeMd, stripMarkdown } from '@udecode/plate-markdown';
-
-import { GhostText } from '@/components/plate-ui/ghost-text';
-
-import { markdownPlugin } from './markdown-plugin';
+import { GhostText } from "@/components/plate/plate-ui/ghost-text";
+import { faker } from "@faker-js/faker";
+import type { TElement } from "@udecode/plate";
+import { CopilotPlugin } from "@udecode/plate-ai/react";
+import { markdownPlugin } from "./markdown-plugin";
 
 export const copilotPlugins = [
   markdownPlugin,
   CopilotPlugin.configure(({ api }) => ({
     options: {
       completeOptions: {
-        api: '/api/ai/copilot',
+        api: "/api/ai/copilot",
         body: {
           system: `You are an advanced AI writing assistant, similar to VSCode Copilot but for general text. Your task is to predict and generate the next part of the text based on the given context.
   
@@ -36,7 +34,7 @@ export const copilotPlugins = [
           });
         },
         onFinish: (_, completion) => {
-          if (completion === '0') return;
+          if (completion === "0") return;
 
           api.copilot.setBlockSuggestion({
             text: stripMarkdown(completion),
@@ -48,7 +46,7 @@ export const copilotPlugins = [
       getPrompt: ({ editor }) => {
         const contextEntry = editor.api.block({ highest: true });
 
-        if (!contextEntry) return '';
+        if (!contextEntry) return "";
 
         const prompt = serializeMd(editor, {
           value: [contextEntry[0] as TElement],
