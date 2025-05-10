@@ -12,8 +12,7 @@ export default function RootLayout({
       <body>
         <nav className="flex gap-5 p-5 bg-gray-400 mb-3">
           <Link href={"/"}>Home</Link>
-          <Link href={"/plate"}>Plate</Link>
-          <Link href={"/toast-ui"}>Toast-ui</Link>
+          <Link href={"/tip-tap"}>Tip-tap</Link>
         </nav>
         {children}
       </body>
