@@ -3,7 +3,6 @@
 import type { Value } from "@udecode/plate";
 
 import { withProps } from "@udecode/cn";
-import { AIPlugin } from "@udecode/plate-ai/react";
 import {
   BoldPlugin,
   CodePlugin,
@@ -63,11 +62,9 @@ import {
   usePlateEditor,
 } from "@udecode/plate/react";
 
-import { copilotPlugins } from "@/components/editor/plugins/copilot-plugins";
 import { editorPlugins } from "@/components/editor/plugins/editor-plugins";
 import { FixedToolbarPlugin } from "@/components/editor/plugins/fixed-toolbar-plugin";
 import { FloatingToolbarPlugin } from "@/components/editor/plugins/floating-toolbar-plugin";
-import { AILeaf } from "@/components/plate-ui/ai-leaf";
 import { BlockquoteElement } from "@/components/plate-ui/blockquote-element";
 import { CalloutElement } from "@/components/plate-ui/callout-element";
 import { CodeBlockElement } from "@/components/plate-ui/code-block-element";
@@ -157,7 +154,6 @@ export const viewComponents = {
 
 export const editorComponents = {
   ...viewComponents,
-  [AIPlugin.key]: AILeaf,
   [EmojiInputPlugin.key]: EmojiInputElement,
   [MentionInputPlugin.key]: MentionInputElement,
   [SlashInputPlugin.key]: SlashInputElement,
@@ -185,26 +181,11 @@ export const useCreateEditor = (
         },
         ...override,
       },
-      plugins: [
-        ...copilotPlugins,
-        ...editorPlugins,
-        FixedToolbarPlugin,
-        FloatingToolbarPlugin,
-      ],
+      plugins: [...editorPlugins, FixedToolbarPlugin, FloatingToolbarPlugin],
       value: [
         {
-          children: [{ text: "Playground" }],
-          type: "h1",
-        },
-        {
-          children: [
-            { text: "A rich-text editor with AI capabilities. Try the " },
-            { bold: true, text: "AI commands" },
-            { text: " or use " },
-            { kbd: true, text: "Cmd+J" },
-            { text: " to open the AI menu." },
-          ],
-          type: ParagraphPlugin.key,
+          children: [{ text: "회고를 작성하세요." }],
+          type: "p",
         },
       ],
       ...options,

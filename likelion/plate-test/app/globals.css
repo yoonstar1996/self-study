@@ -95,6 +95,11 @@
 }
 
 @layer base {
+  ::selection {
+    background: Highlight;
+    color: HighlightText;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }

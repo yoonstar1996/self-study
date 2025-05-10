@@ -12,12 +12,6 @@ import {
   FontColorPlugin,
 } from "@udecode/plate-font/react";
 import { HighlightPlugin } from "@udecode/plate-highlight/react";
-import {
-  AudioPlugin,
-  FilePlugin,
-  ImagePlugin,
-  VideoPlugin,
-} from "@udecode/plate-media/react";
 import { useEditorReadOnly } from "@udecode/plate/react";
 import {
   ArrowUpToLineIcon,
@@ -51,7 +45,6 @@ import { InsertDropdownMenu } from "./insert-dropdown-menu";
 import { LineHeightDropdownMenu } from "./line-height-dropdown-menu";
 import { LinkToolbarButton } from "./link-toolbar-button";
 import { MarkToolbarButton } from "./mark-toolbar-button";
-import { MediaToolbarButton } from "./media-toolbar-button";
 import { ModeDropdownMenu } from "./mode-dropdown-menu";
 import { OutdentToolbarButton } from "./outdent-toolbar-button";
 import { TableDropdownMenu } from "./table-dropdown-menu";
@@ -70,12 +63,6 @@ export function FixedToolbarButtons() {
             <UndoToolbarButton />
             <RedoToolbarButton />
           </ToolbarGroup>
-
-          {/* <ToolbarGroup>
-            <AIToolbarButton tooltip="AI commands">
-              <WandSparklesIcon />
-            </AIToolbarButton>
-          </ToolbarGroup> */}
 
           <ToolbarGroup>
             <ExportToolbarButton>
@@ -138,7 +125,6 @@ export function FixedToolbarButtons() {
 
           <ToolbarGroup>
             <AlignDropdownMenu />
-
             <NumberedIndentListToolbarButton />
             <BulletedIndentListToolbarButton />
             <IndentTodoToolbarButton />
@@ -151,12 +137,12 @@ export function FixedToolbarButtons() {
             <EmojiDropdownMenu />
           </ToolbarGroup>
 
-          <ToolbarGroup>
+          {/* <ToolbarGroup>
             <MediaToolbarButton nodeType={ImagePlugin.key} />
             <MediaToolbarButton nodeType={VideoPlugin.key} />
             <MediaToolbarButton nodeType={AudioPlugin.key} />
             <MediaToolbarButton nodeType={FilePlugin.key} />
-          </ToolbarGroup>
+          </ToolbarGroup> */}
 
           <ToolbarGroup>
             <LineHeightDropdownMenu />

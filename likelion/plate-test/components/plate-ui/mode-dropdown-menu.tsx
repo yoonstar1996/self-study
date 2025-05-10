@@ -1,16 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
+import type { DropdownMenuProps } from "@radix-ui/react-dropdown-menu";
 
-import type { DropdownMenuProps } from '@radix-ui/react-dropdown-menu';
-
-import { SuggestionPlugin } from '@udecode/plate-suggestion/react';
-import {
-  useEditorRef,
-  usePlateState,
-  usePluginOption,
-} from '@udecode/plate/react';
-import { Eye, Pen, PencilLineIcon } from 'lucide-react';
+import { useEditorRef, usePlateState } from "@udecode/plate/react";
+import { Eye, Pen } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -19,33 +12,23 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
   useOpenState,
-} from './dropdown-menu';
-import { ToolbarButton } from './toolbar';
+} from "./dropdown-menu";
+import { ToolbarButton } from "./toolbar";
 
 export function ModeDropdownMenu(props: DropdownMenuProps) {
   const editor = useEditorRef();
-  const [readOnly, setReadOnly] = usePlateState('readOnly');
+  const [readOnly, setReadOnly] = usePlateState("readOnly");
   const openState = useOpenState();
 
-  const isSuggesting = usePluginOption(SuggestionPlugin, 'isSuggesting');
+  let value = "editing";
 
-  let value = 'editing';
-
-  if (readOnly) value = 'viewing';
-
-  if (isSuggesting) value = 'suggestion';
+  if (readOnly) value = "viewing";
 
   const item: any = {
     editing: (
       <>
         <Pen />
         <span className="hidden lg:inline">Editing</span>
-      </>
-    ),
-    suggestion: (
-      <>
-        <PencilLineIcon />
-        <span className="hidden lg:inline">Suggestion</span>
       </>
     ),
     viewing: (
@@ -72,7 +55,7 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
         <DropdownMenuRadioGroup
           value={value}
           onValueChange={(newValue) => {
-            if (newValue === 'viewing') {
+            if (newValue === "viewing") {
               setReadOnly(true);
 
               return;
@@ -80,15 +63,7 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
               setReadOnly(false);
             }
 
-            if (newValue === 'suggestion') {
-              editor.setOption(SuggestionPlugin, 'isSuggesting', true);
-
-              return;
-            } else {
-              editor.setOption(SuggestionPlugin, 'isSuggesting', false);
-            }
-
-            if (newValue === 'editing') {
+            if (newValue === "editing") {
               editor.tf.focus();
 
               return;
@@ -101,10 +76,6 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
 
           <DropdownMenuRadioItem value="viewing">
             {item.viewing}
-          </DropdownMenuRadioItem>
-
-          <DropdownMenuRadioItem value="suggestion">
-            {item.suggestion}
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
