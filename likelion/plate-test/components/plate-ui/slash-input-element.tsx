@@ -29,6 +29,7 @@ import {
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
+  Heading4Icon,
   LightbulbIcon,
   ListIcon,
   ListOrdered,
@@ -112,6 +113,12 @@ const groups: Group[] = [
         keywords: ["subtitle", "h3"],
         label: "Heading 3",
         value: HEADING_KEYS.h3,
+      },
+      {
+        icon: <Heading4Icon />,
+        keywords: ["subtitle", "h4"],
+        label: "Heading 4",
+        value: HEADING_KEYS.h4,
       },
       {
         icon: <ListIcon />,

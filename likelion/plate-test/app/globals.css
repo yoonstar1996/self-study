@@ -6,6 +6,31 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+  /* Plate 에디터 내부 드래그 선택 */
+  [data-registry="plate"] ::selection {
+    @apply bg-blue-200;
+  }
+  /* Plate 컨테이너 자체(예: Ctrl+A 전체 선택) */
+  [data-registry="plate"]::selection {
+    @apply bg-blue-200;
+  }
+  /* Firefox 호환 */
+  [data-registry="plate"] ::-moz-selection {
+    @apply bg-blue-200;
+  }
+  [data-registry="plate"]::-moz-selection {
+    @apply bg-blue-200;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 :root {
   --background: hsl(0 0% 100%);
   --foreground: hsl(222.2 84% 4.9%);
@@ -92,20 +117,6 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-highlight: var(----highlight);
   --color-brand: var(----brand);
-}
-
-@layer base {
-  ::selection {
-    background: Highlight;
-    color: HighlightText;
-  }
-
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
 
 [data-registry="plate"] {

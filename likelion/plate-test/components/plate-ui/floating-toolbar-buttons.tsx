@@ -16,7 +16,6 @@ import {
   UnderlineIcon,
 } from "lucide-react";
 
-import { CommentToolbarButton } from "./comment-toolbar-button";
 import { InlineEquationToolbarButton } from "./inline-equation-toolbar-button";
 import { LinkToolbarButton } from "./link-toolbar-button";
 import { MarkToolbarButton } from "./mark-toolbar-button";
@@ -78,7 +77,7 @@ export function FloatingToolbarButtons() {
       )}
 
       <ToolbarGroup>
-        <CommentToolbarButton />
+        {/* <CommentToolbarButton /> */}
         {/* <SuggestionToolbarButton /> */}
 
         {!readOnly && <MoreDropdownMenu />}

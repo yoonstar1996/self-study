@@ -31,6 +31,7 @@ import {
   Heading1Icon,
   Heading2Icon,
   Heading3Icon,
+  Heading4Icon,
   Link2Icon,
   ListIcon,
   ListOrderedIcon,
@@ -95,6 +96,11 @@ const groups: Group[] = [
         icon: <Heading3Icon />,
         label: "Heading 3",
         value: HEADING_KEYS.h3,
+      },
+      {
+        icon: <Heading4Icon />,
+        label: "Heading 4",
+        value: HEADING_KEYS.h4,
       },
       {
         icon: <TableIcon />,

@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import { cn } from '@udecode/cn';
-import { HEADING_KEYS } from '@udecode/plate-heading';
-import { ParagraphPlugin } from '@udecode/plate/react';
+import { cn } from "@udecode/cn";
+import { HEADING_KEYS } from "@udecode/plate-heading";
 import {
+  ParagraphPlugin,
   type PlaceholderProps,
   createNodeHOC,
   createNodesHOC,
   usePlaceholderState,
-} from '@udecode/plate/react';
+} from "@udecode/plate/react";
 
 export const Placeholder = (props: PlaceholderProps) => {
   const { attributes, children, placeholder } = props;
@@ -24,7 +24,7 @@ export const Placeholder = (props: PlaceholderProps) => {
         className: cn(
           attributes.className,
           enabled &&
-            'before:absolute before:cursor-text before:opacity-30 before:content-[attr(placeholder)]'
+            "before:absolute before:cursor-text before:opacity-30 before:content-[attr(placeholder)]"
         ),
         placeholder,
       },
@@ -41,7 +41,7 @@ export const withPlaceholders = (components: any) =>
     {
       key: ParagraphPlugin.key,
       hideOnBlur: true,
-      placeholder: 'Type a paragraph',
+      placeholder: "'/'를 입력해 명령어 사용",
       query: {
         maxLevel: 1,
       },
@@ -49,6 +49,21 @@ export const withPlaceholders = (components: any) =>
     {
       key: HEADING_KEYS.h1,
       hideOnBlur: false,
-      placeholder: 'Untitled',
+      placeholder: "Heading level 1",
+    },
+    {
+      key: HEADING_KEYS.h2,
+      hideOnBlur: false,
+      placeholder: "Heading level 2",
+    },
+    {
+      key: HEADING_KEYS.h3,
+      hideOnBlur: false,
+      placeholder: "Heading level 3",
+    },
+    {
+      key: HEADING_KEYS.h4,
+      hideOnBlur: false,
+      placeholder: "Heading level 4",
     },
   ]);
