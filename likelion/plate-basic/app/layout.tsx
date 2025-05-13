@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 
 export default function RootLayout({
@@ -7,7 +8,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <nav className="flex gap-5 p-5">
+          <Link href="/">Home</Link>
+          <Link href="/editor">Editor</Link>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
