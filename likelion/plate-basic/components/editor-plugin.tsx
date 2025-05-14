@@ -1,4 +1,5 @@
 import { autoformatPlugin } from "@/plugins/autoformat-plugin";
+import { dndPlugins } from "@/plugins/dnd-plugins";
 // import { dndPlugins } from "@/plugins/dnd-plugins";
 import { BasicMarksPlugin } from "@udecode/plate-basic-marks/react";
 import { BlockquotePlugin } from "@udecode/plate-block-quote/react";
@@ -9,6 +10,7 @@ import { HorizontalRulePlugin } from "@udecode/plate-horizontal-rule/react";
 import { IndentListPlugin } from "@udecode/plate-indent-list/react";
 import { IndentPlugin } from "@udecode/plate-indent/react";
 import { SlashPlugin } from "@udecode/plate-slash-command/react";
+import { SuggestionPlugin } from "@udecode/plate-suggestion/react";
 import { TogglePlugin } from "@udecode/plate-toggle/react";
 import { ParagraphPlugin } from "@udecode/plate/react";
 import { all, createLowlight } from "lowlight";
@@ -73,8 +75,9 @@ export const editorPlugins = [
     },
   }),
   autoformatPlugin,
+  SuggestionPlugin,
   // ...blockMenuPlugins,
-  // ...dndPlugins,
+  ...dndPlugins,
   // EmojiPlugin.configure({ options: { data: emojiMartData as any } }),
   // exitBreakPlugin,
   // resetBlockTypePlugin,

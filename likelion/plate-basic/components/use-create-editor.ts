@@ -11,11 +11,14 @@ import {
   UnderlinePlugin,
 } from "@udecode/plate-basic-marks/react";
 import {
+  CreatePlateEditorOptions,
   ParagraphPlugin,
   PlateLeaf,
   usePlateEditor,
 } from "@udecode/plate/react";
 
+import { FloatingToolbarPlugin } from "@/plugins/floating-toolbar-plugin";
+import { AnyPluginConfig } from "@udecode/plate";
 import {
   CodeBlockPlugin,
   CodeLinePlugin,
@@ -23,6 +26,8 @@ import {
 } from "@udecode/plate-code-block/react";
 import { HorizontalRulePlugin } from "@udecode/plate-horizontal-rule/react";
 import { LinkPlugin } from "@udecode/plate-link/react";
+import { SlashInputPlugin } from "@udecode/plate-slash-command/react";
+import { SuggestionPlugin } from "@udecode/plate-suggestion/react";
 import { TogglePlugin } from "@udecode/plate-toggle/react";
 import { editorPlugins } from "./editor-plugin";
 import { CodeBlockElement } from "./ui/code-block-element";
@@ -33,6 +38,9 @@ import { HeadingElement } from "./ui/heading-element";
 import { HrElement } from "./ui/hr-element";
 import { LinkElement } from "./ui/link-element";
 import { ParagraphElement } from "./ui/paragraph-element";
+import { withPlaceholders } from "./ui/placeholder";
+import { SlashInputElement } from "./ui/slash-input-element";
+import { SuggestionLeaf } from "./ui/suggestion-leaf";
 import { ToggleElement } from "./ui/toggle-element";
 
 export const viewComponents = {
@@ -55,6 +63,8 @@ export const viewComponents = {
   [HEADING_KEYS.h2]: withProps(HeadingElement, { variant: "h2" }),
   [HEADING_KEYS.h3]: withProps(HeadingElement, { variant: "h3" }),
   [HEADING_KEYS.h4]: withProps(HeadingElement, { variant: "h4" }),
+  [HEADING_KEYS.h5]: withProps(HeadingElement, { variant: "h5" }),
+  [HEADING_KEYS.h6]: withProps(HeadingElement, { variant: "h6" }),
   // [HighlightPlugin.key]: HighlightLeaf,
   [HorizontalRulePlugin.key]: HrElement,
   // [ImagePlugin.key]: ImageElement,
@@ -68,7 +78,7 @@ export const viewComponents = {
   // [PlaceholderPlugin.key]: MediaPlaceholderElement,
   [StrikethroughPlugin.key]: withProps(PlateLeaf, { as: "s" }),
   // [SubscriptPlugin.key]: withProps(PlateLeaf, { as: "sub" }),
-  // [SuggestionPlugin.key]: SuggestionLeaf,
+  [SuggestionPlugin.key]: SuggestionLeaf,
   // [SuperscriptPlugin.key]: withProps(PlateLeaf, { as: "sup" }),
   // [TableCellHeaderPlugin.key]: TableCellHeaderElement,
   // [TableCellPlugin.key]: TableCellElement,
@@ -82,43 +92,34 @@ export const viewComponents = {
 
 export const editorComponents = {
   ...viewComponents,
+  [SlashInputPlugin.key]: SlashInputElement,
 };
 
-export const useCreateEditor = () => {
-  return usePlateEditor({
-    components: { ...editorComponents },
-    plugins: [...editorPlugins],
-    value: [
-      {
-        children: [{ text: "Basic Editor" }],
-        type: "h1",
+export const useCreateEditor = (
+  {
+    components,
+    override,
+    readOnly,
+    ...options
+  }: {
+    components?: Record<string, unknown>;
+    plugins?: AnyPluginConfig[];
+    readOnly?: boolean;
+  } & Omit<CreatePlateEditorOptions, "plugins"> = {},
+  deps: unknown[] = []
+) => {
+  return usePlateEditor(
+    {
+      override: {
+        components: {
+          ...(readOnly ? viewComponents : withPlaceholders(editorComponents)),
+          ...components,
+        },
+        ...override,
       },
-      {
-        children: [{ text: "Heading 2" }],
-        type: "h2",
-      },
-      {
-        children: [{ text: "Heading 3" }],
-        type: "h3",
-      },
-      {
-        children: [{ text: "This is a blockquote element" }],
-        type: "blockquote",
-      },
-      {
-        children: [
-          { text: "Basic marks: " },
-          { bold: true, text: "bold" },
-          { text: ", " },
-          { italic: true, text: "italic" },
-          { text: ", " },
-          { text: "underline", underline: true },
-          { text: ", " },
-          { strikethrough: true, text: "strikethrough" },
-          { text: "." },
-        ],
-        type: ParagraphPlugin.key,
-      },
-    ],
-  });
+      plugins: [...editorPlugins, FloatingToolbarPlugin],
+      ...options,
+    },
+    deps
+  );
 };
