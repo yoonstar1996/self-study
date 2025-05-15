@@ -6,7 +6,6 @@ import { withRef } from "@udecode/cn";
 import { BlockquotePlugin } from "@udecode/plate-block-quote/react";
 import { CalloutPlugin } from "@udecode/plate-callout/react";
 import { CodeBlockPlugin } from "@udecode/plate-code-block/react";
-import { DatePlugin } from "@udecode/plate-date/react";
 import { HEADING_KEYS } from "@udecode/plate-heading";
 import { TocPlugin } from "@udecode/plate-heading/react";
 import { INDENT_LIST_KEYS, ListStyleType } from "@udecode/plate-indent-list";
@@ -18,7 +17,6 @@ import {
   PlateElement,
 } from "@udecode/plate/react";
 import {
-  CalendarIcon,
   ChevronRightIcon,
   Code2,
   Columns3Icon,
@@ -36,7 +34,7 @@ import {
   TableOfContentsIcon,
 } from "lucide-react";
 
-import { insertBlock, insertInlineElement } from "../transforms";
+import { insertBlock } from "../transforms";
 import {
   InlineCombobox,
   InlineComboboxContent,
@@ -180,29 +178,29 @@ const groups: Group[] = [
       },
     })),
   },
-  {
-    group: "Inline",
-    items: [
-      {
-        focusEditor: true,
-        icon: <CalendarIcon />,
-        keywords: ["time"],
-        label: "Date",
-        value: DatePlugin.key,
-      },
-      // {
-      //   focusEditor: false,
-      //   icon: <RadicalIcon />,
-      //   label: "Inline Equation",
-      //   value: InlineEquationPlugin.key,
-      // },
-    ].map((item) => ({
-      ...item,
-      onSelect: (editor, value) => {
-        insertInlineElement(editor, value);
-      },
-    })),
-  },
+  // {
+  //   group: "Inline",
+  //   items: [
+  //     {
+  //       focusEditor: true,
+  //       icon: <CalendarIcon />,
+  //       keywords: ["time"],
+  //       label: "Date",
+  //       value: DatePlugin.key,
+  //     },
+  //     {
+  //       focusEditor: false,
+  //       icon: <RadicalIcon />,
+  //       label: "Inline Equation",
+  //       value: InlineEquationPlugin.key,
+  //     },
+  //   ].map((item) => ({
+  //     ...item,
+  //     onSelect: (editor, value) => {
+  //       insertInlineElement(editor, value);
+  //     },
+  //   })),
+  // },
 ];
 
 export const SlashInputElement = withRef<typeof PlateElement>(
