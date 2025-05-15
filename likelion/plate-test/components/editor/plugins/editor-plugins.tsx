@@ -2,7 +2,6 @@
 
 import emojiMartData from "@emoji-mart/data";
 import { CalloutPlugin } from "@udecode/plate-callout/react";
-import { CodeBlockPlugin } from "@udecode/plate-code-block/react";
 import { DatePlugin } from "@udecode/plate-date/react";
 import { DocxPlugin } from "@udecode/plate-docx";
 import { EmojiPlugin } from "@udecode/plate-emoji/react";
@@ -16,14 +15,15 @@ import { HorizontalRulePlugin } from "@udecode/plate-horizontal-rule/react";
 import { JuicePlugin } from "@udecode/plate-juice";
 import { KbdPlugin } from "@udecode/plate-kbd/react";
 import { ColumnPlugin } from "@udecode/plate-layout/react";
-import { SlashPlugin } from "@udecode/plate-slash-command/react";
 import { TogglePlugin } from "@udecode/plate-toggle/react";
 import { TrailingBlockPlugin } from "@udecode/plate-trailing-block";
 
 import { FixedToolbarPlugin } from "@/components/editor/plugins/fixed-toolbar-plugin";
 import { FloatingToolbarPlugin } from "@/components/editor/plugins/floating-toolbar-plugin";
 
+import { CodeBlockPlugin } from "@udecode/plate-code-block/react";
 import { HeadingPlugin } from "@udecode/plate-heading/react";
+import { SlashPlugin } from "@udecode/plate-slash-command/react";
 import { alignPlugin } from "./align-plugin";
 import { autoformatPlugin } from "./autoformat-plugin";
 import { basicNodesPlugins } from "./basic-nodes-plugins";
