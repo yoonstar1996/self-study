@@ -26,7 +26,7 @@ export function PlateEditor() {
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
-      console.log("raw: ", raw);
+      // console.log("raw: ", raw);
       if (raw) {
         const parsed = JSON.parse(raw);
         console.log("parsed: ", parsed);
