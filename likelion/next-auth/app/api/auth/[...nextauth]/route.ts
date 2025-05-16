@@ -8,7 +8,7 @@ export const authOptions = {
     GithubProvider({
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
-      authorization: { params: { scope: "repo user" } },
+      authorization: { params: { scope: "repo user read:org" } },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,

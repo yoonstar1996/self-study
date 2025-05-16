@@ -63,7 +63,7 @@ export function PlateEditor() {
         <EditorContainer>
           <Editor
             variant="demo"
-            className="border border-black max-h-50 h-50 overflow-y-auto"
+            className="border border-black max-h-100 h-100 overflow-y-auto"
             // placeholder는 포커스가 없을 때만 보여줌
             placeholder={isFocused ? "" : "회고를 작성하세요."}
             // focus 들어올 때
