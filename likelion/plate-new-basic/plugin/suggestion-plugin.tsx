@@ -13,9 +13,6 @@ import {
 } from "@udecode/plate-suggestion";
 import { toTPlatePlugin } from "@udecode/plate/react";
 
-import { discussionPlugin } from "@/components/discussion-plugin";
-import { BlockSuggestion } from "@/components/ui/block-suggestion";
-
 export type SuggestionConfig = ExtendConfig<
   BaseSuggestionConfig,
   {
@@ -27,7 +24,7 @@ export type SuggestionConfig = ExtendConfig<
 
 export const suggestionPlugin = toTPlatePlugin<SuggestionConfig>(
   BaseSuggestionPlugin,
-  ({ editor }) => ({
+  () => ({
     handlers: {
       // unset active suggestion when clicking outside of suggestion
       onClick: ({ api, event, setOption, type }) => {
@@ -51,15 +48,12 @@ export const suggestionPlugin = toTPlatePlugin<SuggestionConfig>(
 
             if (!suggestionEntry) {
               unsetActiveSuggestion();
-
               break;
             }
 
             const id = api.suggestion!.nodeId(suggestionEntry[0]);
-
             setOption("activeId", id ?? null);
             isSet = true;
-
             break;
           }
 
@@ -71,18 +65,10 @@ export const suggestionPlugin = toTPlatePlugin<SuggestionConfig>(
     },
     options: {
       activeId: null,
-      currentUserId: editor.getOption(discussionPlugin, "currentUserId"),
+      currentUserId: null,
       hoverId: null,
       uniquePathMap: new Map(),
     },
-    render: {
-      belowRootNodes: ({ api, element }) => {
-        if (!api.suggestion!.isBlockSuggestion(element)) {
-          return null;
-        }
-
-        return <BlockSuggestion element={element} />;
-      },
-    },
+    // 렌더링 섹션(aboveRootNodes/belowRootNodes)은 제거했습니다.
   })
 );

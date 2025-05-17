@@ -42,7 +42,6 @@ export function LinkFloatingToolbar({
 }: {
   state?: LinkFloatingToolbarState;
 }) {
-  const activeCommentId = usePluginOption({ key: "comment" }, "activeId");
   const activeSuggestionId = usePluginOption({ key: "suggestion" }, "activeId");
 
   const floatingOptions: UseVirtualFloatingOptions = React.useMemo(() => {
@@ -54,10 +53,9 @@ export function LinkFloatingToolbar({
           padding: 12,
         }),
       ],
-      placement:
-        activeSuggestionId || activeCommentId ? "top-start" : "bottom-start",
+      placement: activeSuggestionId ? "top-start" : "bottom-start",
     };
-  }, [activeCommentId, activeSuggestionId]);
+  }, [activeSuggestionId]);
 
   const insertState = useFloatingLinkInsertState({
     ...state,

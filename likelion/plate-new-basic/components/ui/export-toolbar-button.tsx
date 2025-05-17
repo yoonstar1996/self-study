@@ -80,11 +80,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { DateElementStatic } from "@/components/ui/date-element-static";
-
 import { LinkElementStatic } from "@/components/ui/link-element-static";
-
-import { MentionElementStatic } from "@/components/ui/mention-element-static";
 
 import { BlockquoteElementStatic } from "./blockquote-element-static";
 import { CodeBlockElementStatic } from "./code-block-element-static";
@@ -196,7 +192,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
       [BaseCodeSyntaxPlugin.key]: CodeSyntaxLeafStatic,
       [BaseColumnItemPlugin.key]: ColumnElementStatic,
       [BaseColumnPlugin.key]: ColumnGroupElementStatic,
-      [BaseDatePlugin.key]: DateElementStatic,
       [BaseHighlightPlugin.key]: HighlightLeafStatic,
       [BaseHorizontalRulePlugin.key]: HrElementStatic,
       // [BaseImagePlugin.key]: ImageElementStatic,
@@ -204,7 +199,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
       // [BaseKbdPlugin.key]: KbdLeafStatic,
       [BaseLinkPlugin.key]: LinkElementStatic,
       // [BaseMediaEmbedPlugin.key]: MediaEmbedElementStatic,
-      [BaseMentionPlugin.key]: MentionElementStatic,
       [BaseParagraphPlugin.key]: ParagraphElementStatic,
       [BaseStrikethroughPlugin.key]: withProps(SlateLeaf, { as: "del" }),
       [BaseSubscriptPlugin.key]: withProps(SlateLeaf, { as: "sub" }),
