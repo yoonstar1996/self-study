@@ -9,21 +9,13 @@ import {
 } from "@udecode/plate-basic-marks/react";
 import { useEditorReadOnly } from "@udecode/plate/react";
 import {
-  BaselineIcon,
   BoldIcon,
   Code2Icon,
   ItalicIcon,
-  PaintBucketIcon,
   StrikethroughIcon,
   UnderlineIcon,
 } from "lucide-react";
 
-import {
-  FontBackgroundColorPlugin,
-  FontColorPlugin,
-} from "@udecode/plate-font/react";
-import { ColorDropdownMenu } from "./color-dropdown-menu";
-import { LinkToolbarButton } from "./link-toolbar-button";
 import { MarkToolbarButton } from "./mark-toolbar-button";
 import { ToolbarGroup } from "./toolbar";
 import { TurnIntoDropdownMenu } from "./turn-into-dropdown-menu";
@@ -67,7 +59,7 @@ export function FloatingToolbarButtons() {
               <Code2Icon />
             </MarkToolbarButton>
 
-            <ColorDropdownMenu
+            {/* <ColorDropdownMenu
               nodeType={FontColorPlugin.key}
               tooltip="Text color"
             >
@@ -79,19 +71,12 @@ export function FloatingToolbarButtons() {
               tooltip="Background color"
             >
               <PaintBucketIcon />
-            </ColorDropdownMenu>
+            </ColorDropdownMenu> */}
 
-            <LinkToolbarButton />
+            {/* <LinkToolbarButton /> */}
           </ToolbarGroup>
         </>
       )}
-      {/* 
-      <ToolbarGroup>
-        <CommentToolbarButton />
-        <SuggestionToolbarButton />
-
-        {!readOnly && <MoreDropdownMenu />}
-      </ToolbarGroup> */}
     </>
   );
 }

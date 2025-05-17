@@ -1,63 +1,39 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import type { Value } from '@udecode/plate';
+import type { Value } from "@udecode/plate";
 
-import { CommentsPlugin } from '@udecode/plate-comments/react';
+import { CommentsPlugin } from "@udecode/plate-comments/react";
 import {
   Plate,
   useEditorPlugin,
   useEditorRef,
   usePluginOption,
-} from '@udecode/plate/react';
-import {
-  differenceInDays,
-  differenceInHours,
-  differenceInMinutes,
-  format,
-} from 'date-fns';
+} from "@udecode/plate/react";
+
 import {
   CheckIcon,
   MoreHorizontalIcon,
   PencilIcon,
   TrashIcon,
   XIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
+import { discussionPlugin } from "@/components/discussion-plugin";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
-import { discussionPlugin } from '@/components/discussion-plugin';
+} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
-import { useCommentEditor } from './comment-create-form';
-import { Editor, EditorContainer } from './editor';
-
-export const formatCommentDate = (date: Date) => {
-  const now = new Date();
-  const diffMinutes = differenceInMinutes(now, date);
-  const diffHours = differenceInHours(now, date);
-  const diffDays = differenceInDays(now, date);
-
-  if (diffMinutes < 60) {
-    return `${diffMinutes}m`;
-  }
-  if (diffHours < 24) {
-    return `${diffHours}h`;
-  }
-  if (diffDays < 2) {
-    return `${diffDays}d`;
-  }
-
-  return format(date, 'MM/dd/yyyy');
-};
+import { useCommentEditor } from "./comment-create-form";
+import { Editor, EditorContainer } from "./editor";
 
 export interface TComment {
   id: string;
@@ -90,26 +66,26 @@ export function Comment(props: {
   } = props;
 
   const editor = useEditorRef();
-  const userInfo = usePluginOption(discussionPlugin, 'user', comment.userId);
-  const currentUserId = usePluginOption(discussionPlugin, 'currentUserId');
+  const userInfo = usePluginOption(discussionPlugin, "user", comment.userId);
+  const currentUserId = usePluginOption(discussionPlugin, "currentUserId");
 
   const resolveDiscussion = async (id: string) => {
     const updatedDiscussions = editor
-      .getOption(discussionPlugin, 'discussions')
+      .getOption(discussionPlugin, "discussions")
       .map((discussion) => {
         if (discussion.id === id) {
           return { ...discussion, isResolved: true };
         }
         return discussion;
       });
-    editor.setOption(discussionPlugin, 'discussions', updatedDiscussions);
+    editor.setOption(discussionPlugin, "discussions", updatedDiscussions);
   };
 
   const removeDiscussion = async (id: string) => {
     const updatedDiscussions = editor
-      .getOption(discussionPlugin, 'discussions')
+      .getOption(discussionPlugin, "discussions")
       .filter((discussion) => discussion.id !== id);
-    editor.setOption(discussionPlugin, 'discussions', updatedDiscussions);
+    editor.setOption(discussionPlugin, "discussions", updatedDiscussions);
   };
 
   const updateComment = async (input: {
@@ -119,7 +95,7 @@ export function Comment(props: {
     isEdited: boolean;
   }) => {
     const updatedDiscussions = editor
-      .getOption(discussionPlugin, 'discussions')
+      .getOption(discussionPlugin, "discussions")
       .map((discussion) => {
         if (discussion.id === input.discussionId) {
           const updatedComments = discussion.comments.map((comment) => {
@@ -137,7 +113,7 @@ export function Comment(props: {
         }
         return discussion;
       });
-    editor.setOption(discussionPlugin, 'discussions', updatedDiscussions);
+    editor.setOption(discussionPlugin, "discussions", updatedDiscussions);
   };
 
   const { tf } = useEditorPlugin(CommentsPlugin);
@@ -202,7 +178,7 @@ export function Comment(props: {
 
         <div className="text-xs leading-none text-muted-foreground/80">
           <span className="mr-1">
-            {formatCommentDate(new Date(comment.createdAt))}
+            {/* {formatCommentDate(new Date(comment.createdAt))} */}
           </span>
           {comment.isEdited && <span>(edited)</span>}
         </div>
@@ -223,7 +199,7 @@ export function Comment(props: {
             <CommentMoreDropdown
               onCloseAutoFocus={() => {
                 setTimeout(() => {
-                  commentEditor.tf.focus({ edge: 'endEditor' });
+                  commentEditor.tf.focus({ edge: "endEditor" });
                 }, 0);
               }}
               onRemoveComment={() => {
@@ -324,11 +300,11 @@ export function CommentMoreDropdown(props: CommentMoreDropdownProps) {
 
   const onDeleteComment = React.useCallback(() => {
     if (!comment.id)
-      return alert('You are operating too quickly, please try again later.');
+      return alert("You are operating too quickly, please try again later.");
 
     // Find and update the discussion
     const updatedDiscussions = editor
-      .getOption(discussionPlugin, 'discussions')
+      .getOption(discussionPlugin, "discussions")
       .map((discussion) => {
         if (discussion.id !== comment.discussionId) {
           return discussion;
@@ -351,7 +327,7 @@ export function CommentMoreDropdown(props: CommentMoreDropdownProps) {
       });
 
     // Save back to session storage
-    editor.setOption(discussionPlugin, 'discussions', updatedDiscussions);
+    editor.setOption(discussionPlugin, "discussions", updatedDiscussions);
     onRemoveComment?.();
   }, [comment.discussionId, comment.id, editor, onRemoveComment]);
 
@@ -359,7 +335,7 @@ export function CommentMoreDropdown(props: CommentMoreDropdownProps) {
     selectedEditCommentRef.current = true;
 
     if (!comment.id)
-      return alert('You are operating too quickly, please try again later.');
+      return alert("You are operating too quickly, please try again later.");
 
     setEditingId(comment.id);
   }, [comment.id, setEditingId]);
@@ -371,7 +347,7 @@ export function CommentMoreDropdown(props: CommentMoreDropdownProps) {
       modal={false}
     >
       <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
-        <Button variant="ghost" className={cn('h-6 p-1 text-muted-foreground')}>
+        <Button variant="ghost" className={cn("h-6 p-1 text-muted-foreground")}>
           <MoreHorizontalIcon className="size-4" />
         </Button>
       </DropdownMenuTrigger>

@@ -5,7 +5,6 @@ import * as React from "react";
 import type { TSlashInputElement } from "@udecode/plate-slash-command";
 
 import { BlockquotePlugin } from "@udecode/plate-block-quote/react";
-import { CalloutPlugin } from "@udecode/plate-callout/react";
 import { CodeBlockPlugin } from "@udecode/plate-code-block/react";
 import { HEADING_KEYS } from "@udecode/plate-heading";
 import { TocPlugin } from "@udecode/plate-heading/react";
@@ -28,6 +27,7 @@ import {
   LightbulbIcon,
   ListIcon,
   ListOrdered,
+  MinusIcon,
   PilcrowIcon,
   Quote,
   Square,
@@ -36,6 +36,8 @@ import {
 } from "lucide-react";
 
 import { insertBlock } from "@/plugin/transforms";
+import { CalloutPlugin } from "@udecode/plate-callout/react";
+import { HorizontalRulePlugin } from "@udecode/plate-horizontal-rule/react";
 import {
   InlineCombobox,
   InlineComboboxContent,
@@ -62,26 +64,13 @@ interface Item {
 }
 
 const groups: Group[] = [
-  // {
-  //   group: 'AI',
-  //   items: [
-  //     {
-  //       focusEditor: false,
-  //       icon: <SparklesIcon />,
-  //       value: 'AI',
-  //       onSelect: (editor) => {
-  //         editor.getApi(AIChatPlugin).aiChat.show();
-  //       },
-  //     },
-  //   ],
-  // },
   {
     group: "Basic blocks",
     items: [
       {
         icon: <PilcrowIcon />,
         keywords: ["paragraph"],
-        label: "Text",
+        label: "Paragraph",
         value: ParagraphPlugin.key,
       },
       {
@@ -103,6 +92,45 @@ const groups: Group[] = [
         value: HEADING_KEYS.h3,
       },
       {
+        icon: <Table />,
+        label: "Table",
+        value: TablePlugin.key,
+      },
+      {
+        icon: <Code2 />,
+        keywords: ["```"],
+        label: "Code Block",
+        value: CodeBlockPlugin.key,
+      },
+      {
+        icon: <Quote />,
+        keywords: ["citation", "blockquote", "quote", ">"],
+        label: "Blockquote",
+        value: BlockquotePlugin.key,
+      },
+      {
+        description: "Insert a highlighted block.",
+        icon: <LightbulbIcon />,
+        keywords: ["note"],
+        label: "Callout",
+        value: CalloutPlugin.key,
+      },
+      {
+        icon: <MinusIcon />,
+        label: "Divider",
+        value: HorizontalRulePlugin.key,
+      },
+    ].map((item) => ({
+      ...item,
+      onSelect: (editor, value) => {
+        insertBlock(editor, value);
+      },
+    })),
+  },
+  {
+    group: "Lists",
+    items: [
+      {
         icon: <ListIcon />,
         keywords: ["unordered", "ul", "-"],
         label: "Bulleted list",
@@ -123,32 +151,8 @@ const groups: Group[] = [
       {
         icon: <ChevronRightIcon />,
         keywords: ["collapsible", "expandable"],
-        label: "Toggle",
+        label: "Toggle list",
         value: TogglePlugin.key,
-      },
-      {
-        icon: <Code2 />,
-        keywords: ["```"],
-        label: "Code Block",
-        value: CodeBlockPlugin.key,
-      },
-      {
-        icon: <Table />,
-        label: "Table",
-        value: TablePlugin.key,
-      },
-      {
-        icon: <Quote />,
-        keywords: ["citation", "blockquote", "quote", ">"],
-        label: "Blockquote",
-        value: BlockquotePlugin.key,
-      },
-      {
-        description: "Insert a highlighted block.",
-        icon: <LightbulbIcon />,
-        keywords: ["note"],
-        label: "Callout",
-        value: CalloutPlugin.key,
       },
     ].map((item) => ({
       ...item,
@@ -171,12 +175,6 @@ const groups: Group[] = [
         label: "3 columns",
         value: "action_three_columns",
       },
-      // {
-      //   focusEditor: false,
-      //   icon: <RadicalIcon />,
-      //   label: "Equation",
-      //   value: EquationPlugin.key,
-      // },
     ].map((item) => ({
       ...item,
       onSelect: (editor, value) => {
@@ -184,29 +182,6 @@ const groups: Group[] = [
       },
     })),
   },
-  // {
-  //   group: "Inline",
-  //   items: [
-  //     {
-  //       focusEditor: true,
-  //       icon: <CalendarIcon />,
-  //       keywords: ["time"],
-  //       label: "Date",
-  //       value: DatePlugin.key,
-  //     },
-  //     {
-  //       focusEditor: false,
-  //       icon: <RadicalIcon />,
-  //       label: "Inline Equation",
-  //       value: InlineEquationPlugin.key,
-  //     },
-  //   ].map((item) => ({
-  //     ...item,
-  //     onSelect: (editor, value) => {
-  //       insertInlineElement(editor, value);
-  //     },
-  //   })),
-  // },
 ];
 
 export function SlashInputElement(

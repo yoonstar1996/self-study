@@ -66,7 +66,6 @@ export function FixedToolbarButtons() {
             <ExportToolbarButton>
               <ArrowUpToLineIcon />
             </ExportToolbarButton>
-
             <ImportToolbarButton />
           </ToolbarGroup>
 
@@ -119,6 +118,12 @@ export function FixedToolbarButtons() {
             >
               <PaintBucketIcon />
             </ColorDropdownMenu>
+            <MarkToolbarButton
+              nodeType={HighlightPlugin.key}
+              tooltip="Highlight"
+            >
+              <HighlighterIcon />
+            </MarkToolbarButton>
           </ToolbarGroup>
 
           <ToolbarGroup>
@@ -149,17 +154,6 @@ export function FixedToolbarButtons() {
       )}
 
       <div className="grow" />
-
-      <ToolbarGroup>
-        <MarkToolbarButton nodeType={HighlightPlugin.key} tooltip="Highlight">
-          <HighlighterIcon />
-        </MarkToolbarButton>
-        {/* <CommentToolbarButton /> */}
-      </ToolbarGroup>
-
-      {/* <ToolbarGroup>
-        <ModeDropdownMenu />
-      </ToolbarGroup> */}
     </div>
   );
 }

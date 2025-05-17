@@ -99,7 +99,6 @@ import { HighlightLeafStatic } from "./highlight-leaf-static";
 import { HrElementStatic } from "./hr-element-static";
 import { FireLiComponent, FireMarker } from "./indent-fire-marker";
 import { TodoLiStatic, TodoMarkerStatic } from "./indent-todo-marker-static";
-import { InlineEquationElementStatic } from "./inline-equation-element-static";
 import { ParagraphElementStatic } from "./paragraph-element-static";
 import {
   TableCellElementStatic,
@@ -201,7 +200,6 @@ export function ExportToolbarButton(props: DropdownMenuProps) {
       [BaseHighlightPlugin.key]: HighlightLeafStatic,
       [BaseHorizontalRulePlugin.key]: HrElementStatic,
       // [BaseImagePlugin.key]: ImageElementStatic,
-      [BaseInlineEquationPlugin.key]: InlineEquationElementStatic,
       [BaseItalicPlugin.key]: withProps(SlateLeaf, { as: "em" }),
       // [BaseKbdPlugin.key]: KbdLeafStatic,
       [BaseLinkPlugin.key]: LinkElementStatic,
