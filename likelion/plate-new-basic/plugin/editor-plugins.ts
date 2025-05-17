@@ -15,7 +15,6 @@ import { CalloutPlugin } from "@udecode/plate-callout/react";
 import { EmojiPlugin } from "@udecode/plate-emoji/react";
 import { JuicePlugin } from "@udecode/plate-juice";
 
-import { suggestionPlugin } from "@/plugin/suggestion-plugin";
 import {
   FontBackgroundColorPlugin,
   FontColorPlugin,
@@ -24,21 +23,26 @@ import {
 import { ColumnPlugin } from "@udecode/plate-layout/react";
 import { SlashPlugin } from "@udecode/plate-slash-command/react";
 import { TrailingBlockPlugin } from "@udecode/plate-trailing-block";
+
 import { all, createLowlight } from "lowlight";
-import { alignPlugin } from "./align-plugin";
-import { autoformatPlugin } from "./autoformat-plugin";
-import { dndPlugins } from "./dnd-plugins";
-import { exitBreakPlugin } from "./exit-break-plugin";
-import { FixedToolbarPlugin } from "./fixed-toolbar-plugin";
-import { FloatingToolbarPlugin } from "./floating-toolbar-plugin";
-import { indentListPlugins } from "./indent-list-plugins";
-import { lineHeightPlugin } from "./line-height-plugin";
-import { linkPlugin } from "./link-plugin";
-import { markdownPlugin } from "./markdown-plugin";
-import { resetBlockTypePlugin } from "./reset-block-type-plugin";
-import { softBreakPlugin } from "./soft-break-plugin";
-import { tablePlugin } from "./table-plugin";
-import { tocPlugin } from "./toc-plugin";
+
+import {
+  alignPlugin,
+  autoformatPlugin,
+  dndPlugins,
+  exitBreakPlugin,
+  FixedToolbarPlugin,
+  FloatingToolbarPlugin,
+  indentListPlugins,
+  lineHeightPlugin,
+  linkPlugin,
+  markdownPlugin,
+  resetBlockTypePlugin,
+  softBreakPlugin,
+  suggestionPlugin,
+  tablePlugin,
+  tocPlugin,
+} from "./index";
 
 const lowlight = createLowlight(all);
 
