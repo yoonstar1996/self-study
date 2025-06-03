@@ -28,7 +28,7 @@ function PlateEditorInner(_props: unknown, ref: React.Ref<PlateEditorHandle>) {
           <div>
             <label className="block text-sm font-medium">회고록 작성</label>
             <Editor
-              className="h-60 overflow-y-auto rounded border px-2 py-2 focus:placeholder:text-transparent"
+              className="h-60 overflow-y-auto rounded border px-8 py-2 focus:placeholder:text-transparent"
               variant="demo"
               placeholder="변경 사항에 대한 회고를 작성하세요."
             />
