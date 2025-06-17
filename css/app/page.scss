@@ -1,0 +1,28 @@
+.title {
+    margin: 0 0 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.button-container,
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.button-wrap {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.list-wrap {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

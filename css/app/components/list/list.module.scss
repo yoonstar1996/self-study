@@ -1,0 +1,25 @@
+.list {
+    display: inline;
+    padding: 8px 12px;
+    border-bottom: 2px solid #ddd;
+    cursor: pointer;
+    transition:
+        color 0.2s,
+        border-color 0.2s,
+        transform 0.1s;
+
+    &:hover {
+        color: #69f;
+        border-color: #ace;
+    }
+
+    &:active {
+        color: #136bb8;
+        transform: scale(0.97);
+    }
+}
+
+.active {
+    color: #0074d9;
+    border-color: #0074d9;
+}
