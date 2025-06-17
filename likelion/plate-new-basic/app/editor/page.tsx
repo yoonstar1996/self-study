@@ -33,7 +33,7 @@ export default function Page() {
   };
 
   return (
-    <div data-registry="plate" className="w-[500px]">
+    <div data-registry="plate" className="w-[500px] mx-auto">
       {/* 타이틀 */}
       <div>
         <label className="block text-sm font-medium" htmlFor="title">
