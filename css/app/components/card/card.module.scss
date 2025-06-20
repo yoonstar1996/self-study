@@ -1,0 +1,78 @@
+.card-square {
+    width: 190px;
+    height: 254px;
+    background-color: #07182e;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        background-image: linear-gradient(
+            180deg,
+            rgb(0, 183, 255),
+            rgb(255, 48, 255)
+        );
+        height: 130%;
+        animation: rotBGimg 3s linear infinite;
+        transition: all 0.2s linear;
+        // z-index: 2;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: #07182e;
+        inset: 5px;
+        border-radius: 15px;
+    }
+
+    h2 {
+        z-index: 1;
+        color: white;
+        font-size: 2rem;
+    }
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-circle {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #a5fecb, #20bdff);
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+
+    &:hover {
+        transform: rotate3d(1, 1, 0, 60deg);
+    }
+
+    @for $i from 1 through 5 {
+        .circle:nth-child(#{$i}) {
+            inset: #{25 * $i}px;
+            transform: translate3d(0, 0, #{30 * $i}px);
+        }
+    }
+
+    .circle {
+        border-radius: inherit;
+        position: absolute;
+        background: linear-gradient(#ffffff27, #ffffff28);
+        box-shadow: -5px 5px 10px #64646f33;
+        transition: all 1s ease-in-out;
+    }
+}

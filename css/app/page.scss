@@ -9,13 +9,15 @@
 }
 
 .button-container,
-.list-container {
+.list-container,
+.card-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.button-wrap {
+.button-wrap,
+.card-wrap {
     display: flex;
     gap: 12px;
     align-items: center;

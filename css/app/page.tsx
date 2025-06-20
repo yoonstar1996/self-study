@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "./components/button";
+import { CardCircle, CardSquare } from "./components/card";
 import List from "./components/list";
 import "./page.scss";
 
@@ -21,6 +22,13 @@ export default function Home() {
                     <ul className="list-wrap">
                         <List className="list" />
                     </ul>
+                </div>
+                <div className="card-container">
+                    <h2>카드</h2>
+                    <div className="card-wrap">
+                        <CardSquare />
+                        <CardCircle />
+                    </div>
                 </div>
             </div>
         </div>
