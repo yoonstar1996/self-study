@@ -8,7 +8,9 @@ import "./page.scss";
 export default function Home() {
     return (
         <div>
-            <h1 className="title">CSS 연습</h1>
+            <div className="typewriter">
+                <h1 className="title">CSS 연습</h1>
+            </div>
             <div className="container">
                 <div className="button-container">
                     <h2>버튼들</h2>
