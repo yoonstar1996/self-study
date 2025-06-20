@@ -1,0 +1,38 @@
+.form-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid #1e1e1e;
+    border-radius: 0.5em;
+    outline: none;
+    color: #111;
+    padding-left: 1em;
+
+    &:hover {
+        border: 2px solid #222;
+    }
+
+    &:focus {
+        border: 2px solid #333;
+    }
+}
+
+.form-label {
+    position: absolute;
+    background-color: #fff;
+    color: #111;
+    left: 1em;
+    top: 0.5em;
+    cursor: text;
+    transition:
+        top 350ms ease-in,
+        font-size 350ms ease-in;
+}
+
+input[type="text"]:focus ~ .form-label,
+input[type="text"]:not(:placeholder-shown) ~ .form-label {
+    top: -0.5em;
+    font-size: 0.75em;
+    padding: 0 0.125em;
+}

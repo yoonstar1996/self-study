@@ -35,7 +35,8 @@
 
 .button-container,
 .list-container,
-.card-container {
+.card-container,
+.input-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -52,4 +53,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.input-wrap {
+    width: 90%;
+    max-width: 20rem;
+    height: 2.5em;
+    position: relative;
 }
