@@ -4,6 +4,7 @@ import Button from "./components/button";
 import { CardCircle, CardSquare } from "./components/card";
 import Input from "./components/input";
 import List from "./components/list";
+import Navigation from "./components/navigation";
 import "./page.scss";
 
 export default function Home() {
@@ -13,6 +14,12 @@ export default function Home() {
                 <h1 className="title">CSS 연습</h1>
             </div>
             <div className="container">
+                <div className="navigation-container">
+                    <h2>Navigation</h2>
+                    <div className="navigation-wrap">
+                        <Navigation />
+                    </div>
+                </div>
                 <div className="button-container">
                     <h2>Button</h2>
                     <div className="button-wrap">

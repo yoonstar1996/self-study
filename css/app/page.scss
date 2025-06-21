@@ -36,14 +36,16 @@
 .button-container,
 .list-container,
 .card-container,
-.input-container {
+.input-container,
+.navigation-container {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
 .button-wrap,
-.card-wrap {
+.card-wrap,
+.navigation-wrap {
     display: flex;
     gap: 12px;
     align-items: center;
@@ -60,4 +62,14 @@
     max-width: 20rem;
     height: 2.5em;
     position: relative;
+}
+
+.navigation-container {
+    background-color: var(--clr);
+    padding: 40px;
+
+    h2 {
+        color: #fff;
+        margin-bottom: 30px;
+    }
 }
