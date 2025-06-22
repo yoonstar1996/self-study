@@ -2,6 +2,7 @@
 
 import Button from "./components/button";
 import { CardCircle, CardSquare } from "./components/card";
+import Clock from "./components/clock";
 import Input from "./components/input";
 import List from "./components/list";
 import Navigation from "./components/navigation";
@@ -14,6 +15,12 @@ export default function Home() {
                 <h1 className="title">CSS 연습</h1>
             </div>
             <div className="container">
+                <div className="clock-container">
+                    <h2>Clock</h2>
+                    <div className="clock-wrap">
+                        <Clock />
+                    </div>
+                </div>
                 <div className="navigation-container">
                     <h2>Navigation</h2>
                     <div className="navigation-wrap">
