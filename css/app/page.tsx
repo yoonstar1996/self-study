@@ -6,6 +6,7 @@ import Clock from "./components/clock";
 import Input from "./components/input";
 import List from "./components/list";
 import Navigation from "./components/navigation";
+import Toggle from "./components/toggle";
 import "./page.scss";
 
 export default function Home() {
@@ -51,6 +52,10 @@ export default function Home() {
                     <h2>Input</h2>
                     <div className="input-wrap">
                         <Input />
+                    </div>
+                    <h2></h2>
+                    <div className="toggle-wrap">
+                        <Toggle />
                     </div>
                 </div>
             </div>

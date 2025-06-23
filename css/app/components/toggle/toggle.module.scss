@@ -1,0 +1,84 @@
+.switch-container {
+    width: 24em;
+    height: 10em;
+    border-radius: 10em;
+    box-shadow: 5px 5px 15px 5px #cfd9dc;
+    position: relative;
+    // cursor: pointer;
+
+    // 숨겨진 체크박스
+    .input {
+        display: none;
+    }
+
+    // 토글의 배경
+    .switch-color {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        width: 22em;
+        height: 8em;
+        background-color: #cfd8dc;
+        border-radius: 10em;
+        z-index: 1;
+        transition: all 1.5s cubic-bezier(0.34, 1.36, 0.2, 1);
+    }
+
+    // 토글 핸들
+    .label {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        width: 8em;
+        height: 8em;
+        background-color: #fff;
+        border-radius: 4em;
+        box-shadow: 2px 2px 10px 2px #cfd8dc;
+        z-index: 2;
+        transition: all 1.5s cubic-bezier(0.34, 1.36, 0.2, 1);
+        cursor: pointer;
+
+        // X 아이콘
+        &::before {
+            content: "X";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 5em;
+            position: absolute;
+            left: 0.42em;
+            color: #e9182a;
+            transition: opacity 0.3s;
+        }
+
+        // O 아이콘
+        &::after {
+            content: "O";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 5em;
+            position: absolute;
+            left: 0.42em;
+            color: #00e676;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    }
+
+    // checked 상태일 때
+    .input:checked {
+        & ~ .switch-color {
+            background-color: #00e676;
+        }
+
+        & ~ .label {
+            transform: translateX(14em) rotateZ(360deg);
+
+            &::before {
+                opacity: 0;
+            }
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
