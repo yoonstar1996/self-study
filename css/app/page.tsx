@@ -11,7 +11,7 @@ import "./page.scss";
 
 export default function Home() {
     return (
-        <div>
+        <div className="body">
             <div className="typewriter">
                 <h1 className="title">CSS 연습</h1>
             </div>
@@ -33,13 +33,12 @@ export default function Home() {
                     <div className="button-wrap">
                         <Button className="first-button" text="1번 버튼" />
                         <Button className="second-button" text="2번 버튼" />
+                        <Button className="third-button" text="3번 버튼" />
                     </div>
                 </div>
                 <div className="list-container">
                     <h2>List</h2>
-                    <ul className="list-wrap">
-                        <List className="list" />
-                    </ul>
+                    <List />
                 </div>
                 <div className="card-container">
                     <h2>Card</h2>

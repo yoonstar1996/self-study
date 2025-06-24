@@ -10,11 +10,11 @@ export default function List({ className }: ComponentProps) {
     const [selectedIdx, setSelectedIdx] = useState<number | null>(0);
 
     return (
-        <>
+        <ul className={styles["list-container"]}>
             {lists.map((text, index) => (
                 <li
                     key={index}
-                    className={`${styles[className!]} ${
+                    className={`${styles.list} ${
                         selectedIdx === index ? styles.active : ""
                     }`}
                     onClick={() => setSelectedIdx(index)}
@@ -22,6 +22,6 @@ export default function List({ className }: ComponentProps) {
                     {text}
                 </li>
             ))}
-        </>
+        </ul>
     );
 }
