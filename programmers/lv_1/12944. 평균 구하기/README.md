@@ -2,7 +2,7 @@
 
 코딩테스트 연습 > 연습 문제 > 평균 구하기
 
-## [level 1] 약수의 합 - 12944
+## [level 1] 평균 구하기 - 12944
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12944)
 

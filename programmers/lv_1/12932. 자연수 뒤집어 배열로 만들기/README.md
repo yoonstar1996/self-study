@@ -2,7 +2,7 @@
 
 코딩테스트 연습 > 연습 문제 > 자연수 뒤집어 배열로 만들기
 
-## [level 1] 약수의 합 - 12932
+## [level 1] 자연수 뒤집어 배열로 만들기 - 12932
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12932)
 

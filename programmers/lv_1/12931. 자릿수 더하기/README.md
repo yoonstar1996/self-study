@@ -2,7 +2,7 @@
 
 코딩테스트 연습 > 연습 문제 > 자릿수 더하기
 
-## [level 1] 약수의 합 - 12931
+## [level 1] 자릿수 더하기 - 12931
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12931)
 

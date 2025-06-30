@@ -2,7 +2,7 @@
 
 코딩테스트 연습 > 연습 문제 > 짝수와 홀수
 
-## [level 1] 약수의 합 - 12937
+## [level 1] 짝수와 홀수 - 12937
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12937)
 
