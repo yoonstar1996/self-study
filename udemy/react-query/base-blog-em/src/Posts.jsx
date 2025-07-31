@@ -9,12 +9,20 @@ export function Posts() {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  const { data } = useQuery({
+  const { data, isError, error, isLoading } = useQuery({
     queryKey: ["posts"],
     queryFn: fetchPosts,
   });
 
-  if (!data) return <div />;
+  if (isLoading) return <h3>로딩중...</h3>;
+
+  if (isError)
+    return (
+      <>
+        <h3>에러 발생...</h3>
+        <p>에러 내용: {error.toString()}</p>
+      </>
+    );
 
   return (
     <>
