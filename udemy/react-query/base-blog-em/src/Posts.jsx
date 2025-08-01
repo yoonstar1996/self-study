@@ -1,3 +1,5 @@
+import Error from "./Error";
+import Loading from "./Loading";
 import { PostDetail } from "./PostDetail";
 import { fetchPosts } from "./api";
 import { useQuery } from "@tanstack/react-query";
@@ -15,15 +17,9 @@ export function Posts() {
     staleTime: 2000,
   });
 
-  if (isLoading) return <h3>로딩중...</h3>;
+  if (isLoading) return <Loading />;
 
-  if (isError)
-    return (
-      <>
-        <h3>에러 발생...</h3>
-        <p>에러 내용: {error.toString()}</p>
-      </>
-    );
+  if (isError) return <Error error={error} />;
 
   return (
     <>
