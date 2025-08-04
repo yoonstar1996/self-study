@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import { fetchComments } from "./api";
 import { useQuery } from "@tanstack/react-query";
 
-export function PostDetail({ post }) {
+export function PostDetail({ post, deleteMutation, updateMutation }) {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["comments", post.id],
     queryFn: () => fetchComments(post.id),
@@ -18,7 +18,32 @@ export function PostDetail({ post }) {
   return (
     <>
       <h3 style={{ color: "blue" }}>{post.title}</h3>
-      <button>Delete</button> <button>Update title</button>
+      <div>
+        <button onClick={() => deleteMutation.mutate(post.id)}>Delete</button>
+        {deleteMutation.isPending && <p className="loading">게시글 삭제중</p>}
+        {deleteMutation.isError && (
+          <p className="error">
+            게시글 삭제 에러 발생: {deleteMutation.error.toString()}
+          </p>
+        )}
+        {deleteMutation.isSuccess && (
+          <p className="success">게시글 삭제 성공!</p>
+        )}
+      </div>
+      <div>
+        <button onClick={() => updateMutation.mutate(post.id)}>
+          Update title
+        </button>
+        {updateMutation.isPending && <p className="loading">게시글 수정중</p>}
+        {updateMutation.isError && (
+          <p className="error">
+            게시글 수정 에러 발생: {updateMutation.error.toString()}
+          </p>
+        )}
+        {updateMutation.isSuccess && (
+          <p className="success">게시글 수정 성공!</p>
+        )}
+      </div>
       <p>{post.body}</p>
       <h4>Comments</h4>
       {data.map((comment) => (
