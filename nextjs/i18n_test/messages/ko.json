@@ -1,0 +1,11 @@
+{
+  "welcome": "안녕하세요",
+  "hello": "반갑습니다",
+  "price_label": "가격",
+  "total_label": "총액",
+  "discount_label": "할인",
+  "tax_label": "세금",
+  "shipping_label": "배송비",
+  "subtotal_label": "소계",
+  "currency_label": "통화"
+}
