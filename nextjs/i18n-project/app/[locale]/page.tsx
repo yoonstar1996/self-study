@@ -1,4 +1,3 @@
-import Nav from "@/components/nav/Nav";
 import { useTranslations } from "next-intl";
 
 export default function Home() {

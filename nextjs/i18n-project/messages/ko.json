@@ -1,5 +1,8 @@
 {
   "Home": {
     "title": "반갑습니다."
+  },
+  "About": {
+    "title": "About페이지 타이틀 입니다."
   }
 }

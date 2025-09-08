@@ -1,5 +1,10 @@
-import React from "react";
+import { useTranslations } from "next-intl";
 
 export default function About() {
-  return <div>About 페이지에 오신걸 환영합니다.</div>;
+  const t = useTranslations("About");
+  return (
+    <>
+      <h1>{t("title")}</h1>
+    </>
+  );
 }
